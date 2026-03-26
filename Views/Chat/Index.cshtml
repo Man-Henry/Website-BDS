@@ -1,0 +1,220 @@
+@{
+    ViewData["Title"] = "Tin Nhắn Thành Viên";
+    Layout = "_Layout";
+    var tenants = ViewBag.Tenants as IEnumerable<dynamic>;
+}
+
+<div class="container-fluid p-0">
+    <div class="row g-0 h-100 bg-white" style="height: calc(100vh - 85px) !important; border-top: 1px solid #dee2e6;">
+        
+        <!-- Sidebar Danh sách người dùng -->
+        <div class="col-md-4 col-lg-3 border-end h-100 d-flex flex-column">
+            <div class="p-3 border-bottom bg-light">
+                <h5 class="mb-0 fw-bold">Danh sách Khách Thuê</h5>
+            </div>
+            <div class="p-2 border-bottom">
+                <input type="text" class="form-control" id="chatSearch" placeholder="Tìm kiếm tên, email...">
+            </div>
+            <div class="overflow-auto flex-grow-1" id="tenantList">
+                @if(tenants != null)
+                {
+                    foreach(var t in tenants)
+                    {
+                        <a href="javascript:void(0)" class="tenant-item d-flex align-items-center p-3 border-bottom text-decoration-none text-dark"
+                           data-email="@t.Email" data-name="@t.FullName">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px; font-weight: bold;">
+                                @(string.IsNullOrEmpty(t.FullName) ? "U" : t.FullName.Substring(0, 1).ToUpper())
+                            </div>
+                            <div class="overflow-hidden">
+                                <h6 class="mb-0 text-truncate fw-bold">@t.FullName</h6>
+                                <small class="text-muted text-truncate d-block">@t.Email</small>
+                            </div>
+                        </a>
+                    }
+                }
+            </div>
+        </div>
+
+        <!-- Cửa sổ Chat -->
+        <div class="col-md-8 col-lg-9 h-100 d-flex flex-column bg-light" id="chatArea" style="display: none !important;">
+            <!-- Header Chat -->
+            <div class="p-3 border-bottom bg-white d-flex align-items-center">
+                <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center me-3" style="width: 45px; height: 45px; font-weight: bold;" id="activeChatAvatar">
+                    ?
+                </div>
+                <div>
+                    <h5 class="mb-0 fw-bold" id="activeChatName">Chọn một cuộc trò chuyện</h5>
+                    <small class="text-success" id="activeChatEmail">Đang rảnh</small>
+                </div>
+            </div>
+
+            <!-- Nội dung tin nhắn -->
+            <div class="flex-grow-1 p-4 overflow-auto" id="messagesList" style="background-color: #f0f2f5;">
+                <!-- Tin nhắn sẽ được render ở đây -->
+                <div class="text-center text-muted my-5" id="noMessagesPlaceholder">
+                    <i class="bi bi-chat-dots fs-1"></i>
+                    <p>Hãy chọn một người thuê để bắt đầu trò chuyện</p>
+                </div>
+            </div>
+
+            <!-- Form nhập tin nhắn -->
+            <div class="p-3 bg-white border-top">
+                <form id="chatForm" class="d-flex align-items-center">
+                    <button type="button" class="btn btn-light text-secondary me-2 rounded-circle" disabled>
+                        <i class="bi bi-paperclip"></i>
+                    </button>
+                    <input type="text" id="messageInput" class="form-control rounded-pill px-4 py-2" placeholder="Nhập tin nhắn..." autocomplete="off" disabled>
+                    <button type="submit" id="sendButton" class="btn btn-primary rounded-circle ms-2" style="width: 45px; height: 45px;" disabled>
+                        <i class="bi bi-send-fill"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const currentUserEmail = '@User.Identity?.Name';
+        let currentReceiverEmail = '';
+        let hubConnection = null;
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Khởi tạo SignalR Connection
+            hubConnection = new signalR.HubConnectionBuilder()
+                .withUrl("/app-hub")
+                .withAutomaticReconnect()
+                .build();
+
+            // Nhận tin nhắn Realtime
+            hubConnection.on("ReceiveMessage", function (senderEmail, message) {
+                // Nếu tin nhắn gửi chéo (từ Tenant hiện tại đang focus hoặc chính mình gửi)
+                if (currentReceiverEmail === senderEmail || senderEmail === currentUserEmail) {
+                    appendMessage(senderEmail, message, new Date().toLocaleString());
+                    scrollToBottom();
+                } else {
+                    // Hiển thị Noti nhỏ nếu tin nhắn từ người khác
+                    toastr?.info(`Có tin nhắn mới từ ${senderEmail}`);
+                    // Highlight danh sách
+                    let item = document.querySelector(`.tenant-item[data-email="${senderEmail}"]`);
+                    if(item) {
+                        item.classList.add('bg-warning', 'bg-opacity-10');
+                    }
+                }
+            });
+
+            hubConnection.start().catch(err => console.error(err.toString()));
+
+            const messageInput = document.getElementById('messageInput');
+            const chatForm = document.getElementById('chatForm');
+            const sendButton = document.getElementById('sendButton');
+
+            // Xoá highlight khi click vào người đó
+            document.querySelectorAll('.tenant-item').forEach(item => {
+                item.addEventListener('click', function () {
+                    document.querySelectorAll('.tenant-item').forEach(el => el.classList.remove('active', 'bg-light'));
+                    this.classList.add('active', 'bg-light');
+                    this.classList.remove('bg-warning', 'bg-opacity-10');
+
+                    document.getElementById('chatArea').style.display = 'flex';
+                    document.getElementById('chatArea').style.setProperty('display', 'flex', 'important');
+                    
+                    const email = this.getAttribute('data-email');
+                    const name = this.getAttribute('data-name');
+                    
+                    currentReceiverEmail = email;
+                    document.getElementById('activeChatName').innerText = name;
+                    document.getElementById('activeChatEmail').innerText = email;
+                    document.getElementById('activeChatAvatar').innerText = name.substring(0, 1).toUpperCase();
+
+                    messageInput.disabled = false;
+                    sendButton.disabled = false;
+
+                    loadHistory(email);
+                });
+            });
+
+            // Gửi tin nhắn
+            chatForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const msg = messageInput.value.trim();
+                if (!msg || !currentReceiverEmail) return;
+
+                // Gọi hàm SignalR SendMessageToUser
+                hubConnection.invoke("SendMessageToUser", currentReceiverEmail, msg)
+                    .then(() => {
+                        appendMessage(currentUserEmail, msg, new Date().toLocaleString());
+                        messageInput.value = '';
+                        scrollToBottom();
+                    })
+                    .catch(err => console.error(err.toString()));
+            });
+
+            // Tìm kiếm người dùng
+            document.getElementById('chatSearch').addEventListener('input', function() {
+                const keyword = this.value.toLowerCase();
+                document.querySelectorAll('.tenant-item').forEach(item => {
+                    const text = item.innerText.toLowerCase();
+                    item.style.display = text.includes(keyword) ? 'flex' : 'none';
+                });
+            });
+        });
+
+        function loadHistory(receiverEmail) {
+            const list = document.getElementById('messagesList');
+            list.innerHTML = '<div class="text-center mt-5"><div class="spinner-border text-primary"></div></div>'; // Loading
+            
+            // Gọi API History
+            fetch(`/api/v1/chat/history/${receiverEmail}`)
+                .then(res => res.json())
+                .then(data => {
+                    list.innerHTML = '';
+                    if(data.length === 0) {
+                        list.innerHTML = `<div class="text-center text-muted my-5">Chưa có đoạn hội thoại nào trước đây.</div>`;
+                    } else {
+                        data.forEach(m => appendMessage(m.senderEmail, m.content, m.sentAt));
+                        scrollToBottom();
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    list.innerHTML = `<div class="text-center text-danger my-5">Lỗi khi tải lịch sử.</div>`;
+                });
+        }
+
+        function appendMessage(sender, text, time) {
+            const isMe = sender === currentUserEmail;
+            const container = document.getElementById('messagesList');
+            
+            // Remove placeholder if exists
+            const placeholder = document.getElementById('noMessagesPlaceholder');
+            if (placeholder) placeholder.remove();
+
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `d-flex mb-3 ${isMe ? 'justify-content-end' : 'justify-content-start'}`;
+            
+            msgDiv.innerHTML = `
+                <div class="d-flex flex-column ${isMe ? 'align-items-end' : 'align-items-start'}" style="max-width: 70%;">
+                    <div class="rounded p-3 shadow-sm ${isMe ? 'bg-primary text-white' : 'bg-white text-dark'}" 
+                         style="border-radius: ${isMe ? '15px 15px 0 15px' : '15px 15px 15px 0'} !important;">
+                        ${text}
+                    </div>
+                    <small class="text-muted mt-1" style="font-size: 0.75rem;">${time}</small>
+                </div>
+            `;
+            container.appendChild(msgDiv);
+        }
+
+        function scrollToBottom() {
+            const list = document.getElementById('messagesList');
+            list.scrollTop = list.scrollHeight;
+        }
+    </script>
+}
+<style>
+    .tenant-item:hover { background-color: #f8f9fa; }
+    .tenant-item.active { border-left: 4px solid var(--bs-primary); }
+    /* Hide the default global footer and header adjustments for full height chat */
+    .site-footer { display: none !important; }
+    main.admin-content { padding: 0 !important; }
+</style>

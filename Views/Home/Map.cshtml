@@ -1,0 +1,211 @@
+@{
+    Layout = "_PublicLayout";
+}
+
+@section Styles {
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+
+    <style>
+        #map {
+            height: calc(100vh - 160px); /* Adjust based on header/footer height */
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+
+        .map-container {
+            position: relative;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .leaflet-popup-content {
+            margin: 0;
+            width: 250px !important;
+        }
+
+        .property-popup img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .property-popup .popup-body {
+            padding: 15px;
+        }
+
+        .property-popup h5 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #1a3c5e;
+        }
+
+        .property-popup p {
+            margin: 0 0 5px;
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+
+        .property-popup .price {
+            font-weight: 800;
+            color: #f97316;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .property-popup .btn-detail {
+            display: block;
+            text-align: center;
+            background: #1a3c5e;
+            color: #fff;
+            padding: 8px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .property-popup .btn-detail:hover {
+            background: #f97316;
+        }
+        
+        .custom-marker {
+            background-color: #f97316;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 4px 8px;
+            text-align: center;
+            border: 2px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-marker::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px 6px 0;
+            border-style: solid;
+            border-color: #f97316 transparent transparent transparent;
+        }
+    </style>
+}
+
+<div class="container-fluid map-container">
+    <div class="row mb-3 align-items-center">
+        <div class="col-md-8">
+            <h2 class="fw-bold text-primary mb-0"><i class="bi bi-map text-accent me-2"></i>Bản Đồ Nhà Trọ Tốt Nhất</h2>
+            <p class="text-muted mb-0 mt-1">Khám phá các khu trọ, mức giá theo vị trí địa lý thực tế.</p>
+        </div>
+    </div>
+
+    <!-- Bản Đồ Leaflet -->
+    <div id="map"></div>
+</div>
+
+@section Scripts {
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- MarkerCluster JS -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Khởi tạo bản đồ, tâm điểm (TP HCM = 10.762622, 106.660172)
+            var map = L.map('map').setView([10.762622, 106.660172], 12);
+
+            // Gắn TileLayer (giao diện Bản đồ chuẩn)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+
+            var markers = L.markerClusterGroup({
+                chunkedLoading: true
+            });
+
+            // Gọi API lấy toạ độ và nhà trống
+            fetch('/api/v1/properties/map-data')
+                .then(response => response.json())
+                .then(data => {
+                    if(!data || data.length === 0) {
+                        return; // Chưa có data có tọa độ
+                    }
+
+                    var bounds = [];
+
+                    data.forEach(function (property) {
+                        if (property.latitude && property.longitude) {
+                            var lat = property.latitude;
+                            var lng = property.longitude;
+                            
+                            // Lưu vào bounds để auto zoom
+                            bounds.push([lat, lng]);
+
+                            // Custom HTML icon (Hiển thị giá tối thiểu)
+                            var priceFormatted = new Intl.NumberFormat('vi-VN').format(property.minPrice / 1000) + 'K';
+                            if (property.minPrice === 0) priceFormatted = 'Liên hệ';
+                            else if (property.minPrice >= 1000000) {
+                                priceFormatted = (property.minPrice / 1000000).toFixed(1) + ' Tr';
+                            }
+
+                            var icon = L.divIcon({
+                                className: 'custom-div-icon',
+                                html: `<div class='custom-marker'>${priceFormatted}</div>`,
+                                iconSize: [60, 30],
+                                iconAnchor: [30, 35],
+                                popupAnchor: [0, -35]
+                            });
+
+                            var marker = L.marker([lat, lng], { icon: icon });
+
+                            // Popup Content HTML
+                            var popupContent = `
+                                <div class="property-popup">
+                                    <img src="${property.imageUrl || '/images/rooms/default-room.jpg'}" alt="Khu trọ ${property.name}">
+                                    <div class="popup-body">
+                                        <h5>${property.name}</h5>
+                                        <p><i class="bi bi-geo-alt-fill text-danger"></i> ${property.address}</p>
+                                        <p><i class="bi bi-door-open-fill text-success"></i> ${property.availableRooms} phòng trống</p>
+                                        <div class="price">Từ ${new Intl.NumberFormat('vi-VN').format(property.minPrice)} VNĐ</div>
+                                        <a href="/?keyword=${encodeURIComponent(property.name)}" class="btn-detail">Xem Danh Sách Phòng</a>
+                                    </div>
+                                </div>
+                            `;
+
+                            marker.bindPopup(popupContent);
+                            markers.addLayer(marker);
+                        }
+                    });
+
+                    map.addLayer(markers);
+
+                    // Auto zoom để bao trọn tất cả marker
+                    if (bounds.length > 0) {
+                        map.fitBounds(bounds, { padding: [50, 50] });
+                    }
+                })
+                .catch(err => console.error("Error loading map data:", err));
+        });
+    </script>
+}

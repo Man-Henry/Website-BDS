@@ -1,0 +1,44 @@
+@model Website_QLPT.Models.PaymentConfig
+
+@{
+    ViewData["Title"] = "Sửa Cấu hình Thanh toán";
+}
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Provider" />
+
+            <div class="mb-3">
+                <label class="form-label">Cổng thanh toán</label>
+                <input type="text" class="form-control" value="@(Model.Provider == Website_QLPT.Models.PaymentProvider.MoMo ? "Ví MoMo" : "VietQR (PayOS)")" readonly />
+            </div>
+
+            <div class="mb-3 form-check">
+                <input asp-for="IsActive" class="form-check-input" />
+                <label asp-for="IsActive" class="form-check-label"></label>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Cấu hình API (JSON)</label>
+                <textarea name="unencryptedConfigData" class="form-control" rows="8">@ViewBag.DecryptedData</textarea>
+                <span asp-validation-for="ConfigData" class="text-danger"></span>
+                <small class="form-text text-muted">Dữ liệu này sẽ được mã hóa trước khi lưu trữ.</small>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
+                <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

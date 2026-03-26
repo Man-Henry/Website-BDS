@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - QLPT Phòng Trọ</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap-icons/bootstrap-icons.min.css" />
+
+    <style>
+        :root {
+            --primary: #1B2A3D;
+            --primary-light: #263B52;
+            --accent: #C8A25C;
+            --accent-hover: #B8923E;
+        }
+        * { box-sizing: border-box; margin: 0; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            background: #F4F1EC;
+        }
+
+        .auth-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Panel — Branding */
+        .auth-left {
+            width: 42%;
+            background: linear-gradient(160deg, var(--primary) 0%, var(--primary-light) 50%, #2A4A6B 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        .auth-left::before {
+            content: '';
+            position: absolute;
+            width: 300px; height: 300px;
+            border-radius: 50%;
+            background: rgba(200,162,92,0.06);
+            top: -50px; right: -80px;
+        }
+        .auth-left::after {
+            content: '';
+            position: absolute;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            background: rgba(200,162,92,0.04);
+            bottom: -40px; left: -60px;
+        }
+        .auth-left .brand-logo {
+            width: 64px; height: 64px;
+            background: linear-gradient(135deg, var(--accent), #D4B36A);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            box-shadow: 0 8px 24px rgba(200,162,92,0.3);
+        }
+        .auth-left .brand-title {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+        .auth-left .brand-title span { color: var(--accent); }
+        .auth-left .brand-tagline {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+            text-align: center;
+            line-height: 1.6;
+            max-width: 280px;
+        }
+        .auth-left .auth-illustration {
+            max-width: 260px;
+            margin-top: 32px;
+            opacity: 0.9;
+        }
+        .auth-left .features-list {
+            margin-top: 36px;
+            list-style: none;
+            padding: 0;
+        }
+        .auth-left .features-list li {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.82rem;
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .auth-left .features-list li i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        /* Right Panel — Form */
+        .auth-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px;
+            background: #fff;
+        }
+        .auth-form-box {
+            width: 100%;
+            max-width: 420px;
+        }
+        .auth-form-box .auth-greeting {
+            font-size: 0.9rem;
+            color: #6B7280;
+            margin-bottom: 4px;
+        }
+        .auth-form-box .auth-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-bottom: 28px;
+        }
+
+        /* Form Inputs */
+        .auth-input-group {
+            position: relative;
+            margin-bottom: 18px;
+        }
+        .auth-input-group i.input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9CA3AF;
+            font-size: 1rem;
+        }
+        .auth-input-group input {
+            width: 100%;
+            padding: 14px 16px 14px 44px;
+            border: 1.5px solid #E5E0D8;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: all 0.2s;
+            background: #FAFAF8;
+        }
+        .auth-input-group input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(200,162,92,0.15);
+            background: #fff;
+        }
+        .auth-input-group input::placeholder {
+            color: #9CA3AF;
+        }
+
+        .btn-auth-primary {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s;
+            letter-spacing: 0.01em;
+        }
+        .btn-auth-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(200,162,92,0.3);
+        }
+
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0;
+            color: #9CA3AF;
+            font-size: 0.8rem;
+        }
+        .auth-divider::before, .auth-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #E5E0D8;
+        }
+
+        .auth-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .auth-link:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        .auth-footer-text {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 0.85rem;
+            color: #6B7280;
+        }
+
+        /* Role selection */
+        .role-option {
+            border: 1.5px solid #E5E0D8;
+            border-radius: 10px;
+            padding: 14px 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #FAFAF8;
+        }
+        .role-option:hover { border-color: var(--accent); }
+        .role-option.selected {
+            border-color: var(--accent);
+            background: rgba(200,162,92,0.05);
+        }
+        .role-option .form-check-input:checked {
+            background-color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Back button */
+        .btn-auth-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #6B7280;
+            text-decoration: none;
+            transition: all 0.2s;
+            margin-bottom: 24px;
+        }
+        .btn-auth-back:hover {
+            color: var(--accent);
+        }
+        .btn-auth-back i {
+            font-size: 1rem;
+        }
+
+        @@media (max-width: 768px) {
+            .auth-left { display: none; }
+            .auth-right { padding: 24px; }
+        }
+    </style>
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    @RenderBody()
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

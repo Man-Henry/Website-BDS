@@ -1,0 +1,41 @@
+{
+  "name": "Website_QLPT Dev Container",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "website_qlpt",
+  "workspaceFolder": "/workspace",
+
+  "features": {
+    "ghcr.io/devcontainers/features/dotnet:2": {
+      "version": "10"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.csdevkit",
+        "ms-mssql.mssql",
+        "humao.rest-client",
+        "eamodio.gitlens"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "dotnet.defaultSolution": "Website_QLPT.sln"
+      }
+    }
+  },
+
+  "forwardPorts": [5000, 5001, 8080, 1433],
+  "portsAttributes": {
+    "5000": { "label": "App HTTP", "onAutoForward": "notify" },
+    "5001": { "label": "App HTTPS", "onAutoForward": "notify" },
+    "8080": { "label": "Docker App", "onAutoForward": "silent" },
+    "1433": { "label": "SQL Server", "onAutoForward": "silent" }
+  },
+
+  "postCreateCommand": "dotnet restore && dotnet ef database update && echo '✅ Dev environment ready! Run: dotnet run'",
+
+  "remoteUser": "vscode"
+}

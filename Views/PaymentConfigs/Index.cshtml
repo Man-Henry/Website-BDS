@@ -1,0 +1,77 @@
+@model IEnumerable<Website_QLPT.Models.PaymentConfig>
+
+@{
+    ViewData["Title"] = "Cấu hình Thanh toán";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>@ViewData["Title"]</h2>
+    <a asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Thêm cấu hình</a>
+</div>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Cổng thanh toán</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @if (item.Provider == Website_QLPT.Models.PaymentProvider.MoMo)
+                            {
+                                <span class="badge" style="background-color: #A50064">Ví MoMo</span>
+                            }
+                            else if (item.Provider == Website_QLPT.Models.PaymentProvider.PayOS)
+                            {
+                                <span class="badge" style="background-color: #1a428a">VietQR (PayOS)</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">@item.Provider</span>
+                            }
+                        </td>
+                        <td>
+                            @if (item.IsActive)
+                            {
+                                <span class="badge bg-success">Đang bật</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Đã tắt</span>
+                            }
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Sửa</a>
+                            <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline" onsubmit="return confirm('Bạn có chắc chắn muốn xóa cấu hình này?');">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Xóa</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        
+        @if (!Model.Any())
+        {
+            <div class="text-center py-4 text-muted">
+                <p>Bạn chưa thiết lập cổng thanh toán nào.</p>
+                <p>Thêm cấu hình để khách thuê có thể thanh toán trực tuyến.</p>
+            </div>
+        }
+    </div>
+</div>

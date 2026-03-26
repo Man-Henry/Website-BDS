@@ -1,0 +1,75 @@
+@model Website_QLPT.Models.PaymentConfig
+
+@{
+    ViewData["Title"] = "Thêm Cấu hình Thanh toán";
+}
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Provider" class="form-label"></label>
+                <select asp-for="Provider" class="form-select" id="providerSelect">
+                    <option value="1">Ví MoMo</option>
+                    <option value="2">VietQR (PayOS)</option>
+                </select>
+                <span asp-validation-for="Provider" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 form-check">
+                <input asp-for="IsActive" class="form-check-input" />
+                <label asp-for="IsActive" class="form-check-label"></label>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Cấu hình API (JSON)</label>
+                <textarea name="unencryptedConfigData" class="form-control" rows="8" id="jsonInput" placeholder="Nhập JSON..."></textarea>
+                <span asp-validation-for="ConfigData" class="text-danger"></span>
+                <small class="form-text text-muted" id="jsonHint">
+                    Chọn cổng thanh toán để xem mẫu JSON gợi ý. Dữ liệu này sẽ được MÃ HÓA trước khi lưu.
+                </small>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Lưu Cấu Hình</button>
+                <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+            </div>
+        </form>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h5 class="card-title">Hướng dẫn Cấu hình</h5>
+                <p><strong>Bảo mật:</strong> Các mã bí mật (Secret Key, API Key) của bạn sẽ được hệ thống mã hóa tự động để đảm bảo an toàn tuyệt đối. Chỉ server mới có thể giải mã để xử lý thanh toán.</p>
+                <p><strong>Webhook Tự Động:</strong> Sau khi thanh toán thành công, hệ thống sẽ tự động gạch nợ hóa đơn và gửi thông báo.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        const momoTemplate = '{\n  "PartnerCode": "",\n  "AccessKey": "",\n  "SecretKey": "",\n  "Endpoint": "https://test-payment.momo.vn/v2/gateway/api/create"\n}';
+        const payosTemplate = '{\n  "ClientId": "",\n  "ApiKey": "",\n  "ChecksumKey": ""\n}';
+
+        function updateTemplate() {
+            const provider = document.getElementById('providerSelect').value;
+            const input = document.getElementById('jsonInput');
+            if (input.value.trim() === '' || input.value === momoTemplate || input.value === payosTemplate) {
+                input.value = provider === "1" ? momoTemplate : payosTemplate;
+            }
+        }
+
+        document.getElementById('providerSelect').addEventListener('change', updateTemplate);
+        
+        // Init
+        updateTemplate();
+    </script>
+}

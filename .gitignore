@@ -1,0 +1,56 @@
+# ═══════════════════════════════════════════════════════════
+# .gitignore — Website QLPT
+# ═══════════════════════════════════════════════════════════
+
+# ─── Build output ─────────────────────────────────────────
+[Bb]in/
+[Oo]bj/
+dist/
+
+# ─── IDE / Editor ────────────────────────────────────────
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.DotSettings.user
+
+# ─── Sensitive config (connection strings, secrets) ──────
+appsettings.json
+appsettings.Development.json
+appsettings.Production.json
+appsettings.*.json
+!appsettings.Example.json
+
+# ─── Logs ────────────────────────────────────────────────
+logs/
+*.log
+server.log
+
+# ─── .NET local tools & packages ─────────────────────────
+.dotnet/
+.dotnet-cli/
+node_modules/
+
+# ─── AI / Agent files ────────────────────────────────────
+.agent/
+.gemini/
+openspec/
+
+# ─── Docker ──────────────────────────────────────────────
+docker-compose.override.yml
+
+# ─── Reports & generated docs ───────────────────────────
+LOGIC_REVIEW_REPORT.md
+build_full.log
+
+# ─── OS generated ───────────────────────────────────────
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ─── User secrets (nếu có) ──────────────────────────────
+secrets.json
+*.pfx
+*.pem

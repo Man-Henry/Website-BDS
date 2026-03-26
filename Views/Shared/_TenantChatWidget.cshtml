@@ -1,0 +1,174 @@
+<div id="tenantChatBox" class="position-fixed bg-white shadow-lg d-flex flex-column" 
+     style="bottom: 80px; right: 20px; width: 340px; height: 450px; border-radius: 12px; z-index: 1050; display: none !important; overflow: hidden;">
+    
+    <!-- Đầu Widget -->
+    <div class="bg-primary text-white p-3 d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <div class="rounded-circle bg-white text-primary d-flex align-items-center justify-content-center me-2 fw-bold" style="width: 35px; height: 35px;">
+                C
+            </div>
+            <div>
+                <h6 class="mb-0 fw-bold">Chủ Trọ</h6>
+                <small class="opacity-75" style="font-size: 0.75rem;">Sẵn sàng hỗ trợ</small>
+            </div>
+        </div>
+        <button type="button" class="btn-close btn-close-white" id="closeChatBtn" aria-label="Close"></button>
+    </div>
+
+    <!-- Nội dung tin nhắn -->
+    <div class="flex-grow-1 p-3 overflow-auto" id="tenantChatMessages" style="background-color: #f0f2f5;">
+        <div class="text-center mt-4">
+            <div class="spinner-border text-primary spinner-border-sm" role="status"></div>
+            <div class="small text-muted mt-2">Đang kết nối...</div>
+        </div>
+    </div>
+
+    <!-- Nhập nội dung -->
+    <div class="p-2 border-top bg-white">
+        <form id="tenantChatForm" class="d-flex align-items-center gap-2 m-0">
+            <input type="text" id="tenantMessageInput" class="form-control rounded-pill border-0 bg-light px-3 py-2" placeholder="Nhập tin nhắn..." autocomplete="off">
+            <button type="submit" id="tenantSendBtn" class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; flex-shrink: 0;" disabled>
+                <i class="bi bi-send-fill fs-6"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Nút Mở Bong Bóng / Bong Bóng Tròn -->
+<div class="position-fixed" style="bottom: 20px; right: 20px; z-index: 1049;">
+    <button class="btn btn-primary rounded-circle shadow-lg d-flex align-items-center justify-content-center" 
+            id="toggleChatBtn" style="width: 55px; height: 55px;">
+        <i class="bi bi-chat-dots-fill fs-3 text-white"></i>
+        <!-- Dấu chấm đỏ báo tin mới (khi đóng chat mà có tin tới) -->
+        <span class="position-absolute translate-middle p-2 bg-danger border border-light rounded-circle" id="chatUnreadBadge" style="top: 10%; right: 0; display: none;"></span>
+    </button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const tenantChatBox = document.getElementById('tenantChatBox');
+        const toggleChatBtn = document.getElementById('toggleChatBtn');
+        const closeChatBtn = document.getElementById('closeChatBtn');
+        const unreadBadge = document.getElementById('chatUnreadBadge');
+        
+        const tenantChatForm = document.getElementById('tenantChatForm');
+        const tenantMessageInput = document.getElementById('tenantMessageInput');
+        const tenantSendBtn = document.getElementById('tenantSendBtn');
+        const tenantChatMessages = document.getElementById('tenantChatMessages');
+
+        const currentUser = '@User.Identity?.Name';
+        let adminEmail = 'admin@qlpt.vn'; // Cứng tạm, hoặc lấy qua API
+        let hubConnection = null;
+        let isChatOpen = false;
+
+        // Bật / Tắt Widget
+        toggleChatBtn.addEventListener('click', () => {
+            isChatOpen = true;
+            tenantChatBox.style.setProperty('display', 'flex', 'important');
+            toggleChatBtn.style.display = 'none';
+            unreadBadge.style.display = 'none';
+            scrollToBottom();
+        });
+
+        closeChatBtn.addEventListener('click', () => {
+            isChatOpen = false;
+            tenantChatBox.style.setProperty('display', 'none', 'important');
+            toggleChatBtn.style.display = 'flex';
+        });
+
+        // Khởi tạo SignalR kết nối Chat Hub
+        if (typeof signalR !== 'undefined') {
+            hubConnection = new signalR.HubConnectionBuilder()
+                .withUrl("/app-hub")
+                .withAutomaticReconnect()
+                .build();
+
+            hubConnection.on("ReceiveMessage", function (senderEmail, message) {
+                appendChatMsg(senderEmail, message, new Date().toLocaleString());
+                scrollToBottom();
+
+                if (!isChatOpen) {
+                    unreadBadge.style.display = 'block';
+                    try { window.navigator.vibrate(200); } catch(e){}
+                }
+            });
+
+            hubConnection.start()
+                .then(() => {
+                    // Lấy Landlord Email
+                    fetch('/api/v1/tenant-portal/maintenance') // Hack nhỏ: lấy đại 1 cái để test token (tùy thực tế)
+                        .then(() => {
+                            // Gọi Admin History tạm
+                            loadWidgetHistory();
+                            tenantMessageInput.disabled = false;
+                            tenantSendBtn.disabled = false;
+                        });
+                })
+                .catch(err => {
+                    tenantChatMessages.innerHTML = `<div class="text-danger text-center mt-3">Lỗi kết nối đoạn chat.</div>`;
+                    console.error(err);
+                });
+        }
+
+        // Gửi tin nhắn
+        tenantChatForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const text = tenantMessageInput.value.trim();
+            if (!text || !hubConnection) return;
+
+            // Trong môi trường test local chưa logic phân quyền phức tạp, Admin Email mẫu là 'admin@qlpt.vn'
+            // Chức năng SignalR: SendMessageToUser
+            hubConnection.invoke("SendMessageToUser", "admin@qlpt.vn", text)
+                .then(() => {
+                    appendChatMsg(currentUser, text, new Date().toLocaleString());
+                    tenantMessageInput.value = '';
+                    scrollToBottom();
+                })
+                .catch(err => console.error(err));
+        });
+
+        function loadWidgetHistory() {
+            fetch(`/api/v1/chat/history/admin@qlpt.vn`)
+                .then(res => res.json())
+                .then(data => {
+                    tenantChatMessages.innerHTML = '';
+                    if (!data || data.length === 0) {
+                        tenantChatMessages.innerHTML = `<div class="text-center text-muted small mt-4">Bắt đầu trò chuyện với chủ trọ...</div>`;
+                    } else {
+                        data.forEach(m => {
+                            appendChatMsg(m.senderEmail, m.content, m.sentAt);
+                        });
+                        scrollToBottom();
+                    }
+                })
+                .catch(err => {
+                    tenantChatMessages.innerHTML = `<div class="text-danger text-center mt-3 small">Lỗi tải dữ liệu.</div>`;
+                });
+        }
+
+        function appendChatMsg(sender, text, time) {
+            // Remove waiting state
+            if(tenantChatMessages.querySelector('.spinner-border')) {
+                tenantChatMessages.innerHTML = '';
+            }
+
+            const isMe = sender === currentUser;
+            const div = document.createElement('div');
+            div.className = `d-flex mb-3 ${isMe ? 'justify-content-end' : 'justify-content-start'}`;
+            div.innerHTML = `
+                <div class="d-flex flex-column ${isMe ? 'align-items-end' : 'align-items-start'}" style="max-width: 80%;">
+                    <div class="rounded p-2 shadow-sm ${isMe ? 'bg-primary text-white' : 'bg-white text-dark'}" 
+                         style="border-radius: ${isMe ? '12px 12px 0 12px' : '12px 12px 12px 0'} !important; font-size: 0.9rem;">
+                        ${text}
+                    </div>
+                    <small class="text-muted mt-1" style="font-size: 0.7rem;">${time}</small>
+                </div>
+            `;
+            tenantChatMessages.appendChild(div);
+        }
+
+        function scrollToBottom() {
+            tenantChatMessages.scrollTop = tenantChatMessages.scrollHeight;
+        }
+    });
+</script>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Cổng Khách Thuê</title>
+    <!-- Mượn tạm CSS của Admin -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="~/manifest.json" />
+    <meta name="theme-color" content="#0d6efd" />
+</head>
+<body class="admin-body">
+    <!-- Sidebar -->
+    <div class="admin-sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <i class="bi bi-person-badge text-primary"></i> <span style="color:#2d3748;">Khách Thuê</span>
+        </div>
+        
+        <div class="sidebar-user mb-4 pb-4 border-bottom px-3 text-center">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: #e2e8f0; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                <i class="bi bi-person text-secondary fs-4"></i>
+            </div>
+            <div style="font-size: 14px; font-weight: 600; color: #4a5568;">@User.Identity?.Name</div>
+            <div style="font-size: 12px; color: #718096;">Khách thuê</div>
+            <form method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" class="mt-2 text-center">
+                <button type="submit" class="btn btn-sm btn-outline-danger" style="font-size: 0.75rem;"><i class="bi bi-box-arrow-right"></i> Đăng xuất</button>
+            </form>
+        </div>
+
+        <nav class="sidebar-menu">
+            <a href="@Url.Action("Index", "TenantDashboard")"
+               class="menu-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "TenantDashboard" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                <i class="bi bi-speedometer2"></i> Tổng Quan
+            </a>
+            <a href="@Url.Action("Index", "MaintenanceTickets")"
+               class="menu-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "MaintenanceTickets" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                <i class="bi bi-clipboard2-check"></i> Phiếu Bảo Trì
+            </a>
+            <a href="@Url.Action("Create", "MaintenanceTickets")"
+               class="menu-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "MaintenanceTickets" && ViewContext.RouteData.Values["Action"]?.ToString() == "Create" ? "active" : "")">
+                <i class="bi bi-plus-square"></i> Gửi Phiếu Mới
+            </a>
+        </nav>
+        
+        <div class="mt-auto px-4 py-3 text-center">
+            <a href="/" class="btn btn-sm btn-outline-secondary w-100">
+                <i class="bi bi-house"></i> Về Trang Chủ
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-main" id="main-content">
+        <!-- Top Navbar -->
+        <nav class="admin-topbar">
+            <button class="btn btn-link text-dark" id="sidebar-toggle">
+                <i class="bi bi-list fs-4"></i>
+            </button>
+            <div class="ms-auto pe-4 d-flex align-items-center">
+                <div class="dropdown me-3">
+                    <button class="btn btn-link text-dark position-relative p-0" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
+                        <i class="bi bi-bell fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="notificationBadge" style="display: none; font-size: 0.65rem;">
+                            0
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="notificationDropdown" id="notificationList" style="width: 320px; max-height: 400px; overflow-y: auto;">
+                        <li class="dropdown-header d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-dark">Thông báo</span>
+                            <button class="btn btn-sm btn-link text-decoration-none p-0" id="markAllReadBtn" style="font-size: 0.8rem;">Đánh dấu đã đọc</button>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <div id="notificationItems">
+                            <li><span class="dropdown-item text-muted text-center py-3">Đang tải...</span></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="admin-container">
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <!-- Nhúng Floating Chat Widget -->
+    <partial name="_TenantChatWidget" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script>
+    <script src="~/js/notification.js" asp-append-version="true"></script>
+    <script>
+        $(document).ready(function() {
+            $('#sidebar-toggle').click(function() {
+                $('#sidebar').toggleClass('collapsed');
+                $('#main-content').toggleClass('expanded');
+            });
+        });
+
+        // Register PWA Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

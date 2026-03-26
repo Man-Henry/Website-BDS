@@ -1,0 +1,108 @@
+name: CI Pipeline — Website_QLPT
+
+on:
+  push:
+    branches: ["main", "develop"]
+  pull_request:
+
+jobs:
+  # ─── JOB 1: Build & Test ──────────────────────────────────────────────────
+  test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Run tests with coverage
+        run: |
+          dotnet test --no-build --configuration Release \
+            --verbosity normal \
+            --collect:"XPlat Code Coverage" \
+            --results-directory ./coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          directory: ./coverage
+          fail_ci_if_error: false
+
+  # ─── JOB 2: OWASP ZAP Security Scan ─────────────────────────────────────
+  # Chạy sau test, spin up app bằng Docker Compose trước
+  zap-scan:
+    name: OWASP ZAP Security Scan
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create dummy appsettings for CI
+        run: |
+          cat > appsettings.json << 'EOF'
+          {
+            "ConnectionStrings": {
+              "DefaultConnection": "Server=sqlserver;Database=QLPT_DB;User=sa;Password=Your_password123;TrustServerCertificate=True"
+            }
+          }
+          EOF
+
+      - name: Start application via Docker Compose
+        run: |
+          docker compose up -d --build
+          echo "Waiting for app to be healthy..."
+          timeout 120 bash -c 'until curl -sf http://localhost:8080/health; do echo "Waiting..."; sleep 3; done'
+          echo "App is healthy. Starting ZAP scan."
+
+      - name: OWASP ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.11.0
+        with:
+          target: "http://localhost:8080"
+          fail_action: true
+          cmd_options: "-a -j"
+        continue-on-error: false
+
+      - name: Tear down Docker Compose
+        if: always()
+        run: docker compose down -v
+
+  # ─── JOB 3: Deploy to Staging (develop branch only) ─────────────────────
+  deploy-staging:
+    name: Deploy → Staging
+    runs-on: ubuntu-latest
+    needs: [test]
+    if: github.ref == 'refs/heads/develop'
+    environment:
+      name: staging
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to staging
+        run: echo "Deploy to staging server here (SSH / docker compose pull)"
+      - name: Smoke test staging
+        run: |
+          bash scripts/smoke-test.sh ${{ secrets.STAGING_URL }}
+
+  # ─── JOB 4: Deploy to Production (main branch, manual approval) ──────────
+  deploy-production:
+    name: Deploy → Production
+    runs-on: ubuntu-latest
+    needs: [test, zap-scan]
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: production
+      url: ${{ secrets.PROD_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to production
+        run: echo "Deploy to production server here"
+      - name: Smoke test production
+        run: |
+          bash scripts/smoke-test.sh ${{ secrets.PROD_URL }}

@@ -1,0 +1,260 @@
+@model Website_QLPT.ViewModels.DashboardViewModel
+@{
+    ViewData["Title"] = "Tổng Quan & Báo Cáo";
+    var monthLabelsJson = System.Text.Json.JsonSerializer.Serialize(Model.MonthLabels);
+    var monthlyRevenueJson = System.Text.Json.JsonSerializer.Serialize(Model.MonthlyRevenueData);
+    var roomStatusLabelsJson = System.Text.Json.JsonSerializer.Serialize(Model.RoomStatusLabels);
+    var roomStatusDataJson = System.Text.Json.JsonSerializer.Serialize(Model.RoomStatusData);
+}
+
+<div class="page-header">
+    <h1 class="page-title"><i class="bi bi-bar-chart-line-fill me-2 text-secondary"></i>Tổng Quan & Báo Cáo</h1>
+    <div>
+        <span class="text-muted small"><i class="bi bi-calendar me-1"></i>Cập nhật lúc @DateTime.Now.ToString("HH:mm dd/MM/yyyy")</span>
+    </div>
+</div>
+
+<!-- ── KPI Cards ────────────────────────────────────────── -->
+<div class="row g-3 mb-4">
+    <div class="col-6 col-md-3">
+        <div class="card-qlpt h-100 border-0 shadow-sm">
+            <div class="card-qlpt-body p-4 d-flex align-items-center gap-3">
+                <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                     style="width:52px;height:52px;background:rgba(34,197,94,.12);">
+                    <i class="bi bi-door-open-fill fs-4 text-success"></i>
+                </div>
+                <div>
+                    <div class="fw-bold fs-3 lh-1">@Model.OccupiedRooms / @Model.TotalRooms</div>
+                    <div class="text-muted small">Phòng đang thuê</div>
+                    <div class="mt-1">
+                        <span class="badge bg-success text-white" style="font-size:0.72rem;">@Model.OccupancyRate% lấp đầy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+        <div class="card-qlpt h-100 border-0 shadow-sm">
+            <div class="card-qlpt-body p-4 d-flex align-items-center gap-3">
+                <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                     style="width:52px;height:52px;background:rgba(59,130,246,.12);">
+                    <i class="bi bi-cash-coin fs-4 text-primary"></i>
+                </div>
+                <div>
+                    <div class="fw-bold fs-5 lh-1 text-success">@Model.TotalRevenuePaid.ToString("N0")</div>
+                    <div class="text-muted small">Đã thu (VNĐ)</div>
+                    <div class="text-muted small text-danger mt-1">Chờ thu: @Model.TotalRevenueUnpaid.ToString("N0")</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+        <div class="card-qlpt h-100 border-0 shadow-sm">
+            <div class="card-qlpt-body p-4 d-flex align-items-center gap-3">
+                <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                     style="width:52px;height:52px;background:rgba(249,115,22,.12);">
+                    <i class="bi bi-file-earmark-text-fill fs-4 text-warning"></i>
+                </div>
+                <div>
+                    <div class="fw-bold fs-3 lh-1">@Model.ActiveContracts</div>
+                    <div class="text-muted small">Hợp đồng hiệu lực</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+        <div class="card-qlpt h-100 border-0 shadow-sm">
+            <div class="card-qlpt-body p-4 d-flex align-items-center gap-3">
+                <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                     style="width:52px;height:52px;background:rgba(239,68,68,.12);">
+                    <i class="bi bi-tools fs-4 text-danger"></i>
+                </div>
+                <div>
+                    <div class="fw-bold fs-3 lh-1">@Model.OpenTickets</div>
+                    <div class="text-muted small">Sự cố chưa giải quyết</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── Charts Row ───────────────────────────────────────── -->
+<div class="row g-3 mb-4">
+    <div class="col-lg-8">
+        <div class="card-qlpt h-100">
+            <div class="card-qlpt-header"><h5 class="card-qlpt-title">Doanh Thu 6 Tháng Gần Nhất</h5></div>
+            <div class="card-qlpt-body p-3" style="position: relative; height: 280px;">
+                <canvas id="revenueChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card-qlpt h-100">
+            <div class="card-qlpt-header"><h5 class="card-qlpt-title">Trạng Thái Phòng</h5></div>
+            <div class="card-qlpt-body p-3 d-flex align-items-center justify-content-center" style="height: 280px;">
+                <canvas id="roomStatusChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── Tables Row ───────────────────────────────────────── -->
+<div class="row g-3">
+    <div class="col-lg-6">
+        <div class="card-qlpt">
+            <div class="card-qlpt-header d-flex justify-content-between align-items-center">
+                <h5 class="card-qlpt-title mb-0">Top Hóa Đơn Chưa Thu</h5>
+                <a asp-controller="Invoices" asp-action="Index" class="small text-primary">Xem tất cả →</a>
+            </div>
+            <div class="card-qlpt-body p-0">
+                @if (!Model.RecentUnpaidInvoices.Any())
+                {
+                    <div class="text-center text-muted py-4"><i class="bi bi-check-circle me-2 text-success"></i>Tất cả hóa đơn đã được thu!</div>
+                }
+                else
+                {
+                    <table class="table table-hover mb-0" style="font-size: 0.88rem;">
+                        <thead style="background:#f9fafb; font-size:11px; color:#6b7280; text-transform: uppercase;">
+                            <tr>
+                                <th class="px-3 py-2">Phòng</th>
+                                <th class="px-3 py-2">Khách</th>
+                                <th class="px-3 py-2 text-end">Số tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var inv in Model.RecentUnpaidInvoices)
+                            {
+                                <tr>
+                                    <td class="px-3 py-2">
+                                        <a asp-controller="Invoices" asp-action="Details" asp-route-id="@inv.Id" class="fw-bold text-decoration-none">
+                                            @inv.Contract?.Room?.Name
+                                        </a>
+                                        <div class="text-muted" style="font-size:0.75rem;">T@(inv.Month)/@inv.Year</div>
+                                    </td>
+                                    <td class="px-3 py-2 text-muted">@inv.Contract?.Tenant?.FullName</td>
+                                    <td class="px-3 py-2 text-end fw-bold text-danger">@inv.TotalAmount.ToString("N0")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card-qlpt">
+            <div class="card-qlpt-header d-flex justify-content-between align-items-center">
+                <h5 class="card-qlpt-title mb-0">Sự Cố Cần Xử Lý</h5>
+                <a asp-controller="MaintenanceTickets" asp-action="Index" class="small text-primary">Xem tất cả →</a>
+            </div>
+            <div class="card-qlpt-body p-0">
+                @if (!Model.RecentOpenTickets.Any())
+                {
+                    <div class="text-center text-muted py-4"><i class="bi bi-check-circle me-2 text-success"></i>Không có sự cố nào!</div>
+                }
+                else
+                {
+                    <table class="table table-hover mb-0" style="font-size: 0.88rem;">
+                        <thead style="background:#f9fafb; font-size:11px; color:#6b7280; text-transform: uppercase;">
+                            <tr>
+                                <th class="px-3 py-2">Sự cố</th>
+                                <th class="px-3 py-2">Phòng</th>
+                                <th class="px-3 py-2">Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var ticket in Model.RecentOpenTickets)
+                            {
+                                var statusColor = ticket.Status == Website_QLPT.Models.TicketStatus.InProgress ? "text-warning" : "text-danger";
+                                <tr>
+                                    <td class="px-3 py-2">
+                                        <a asp-controller="MaintenanceTickets" asp-action="Details" asp-route-id="@ticket.Id" class="fw-bold text-decoration-none text-truncate d-block" style="max-width:180px;" title="@ticket.Title">
+                                            @ticket.Title
+                                        </a>
+                                    </td>
+                                    <td class="px-3 py-2 text-muted">@ticket.Contract?.Room?.Name</td>
+                                    <td class="px-3 py-2"><span class="@statusColor fw-bold">@ticket.Status</span></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script>
+        const monthLabels = @Html.Raw(monthLabelsJson);
+        const monthlyRevenue = @Html.Raw(monthlyRevenueJson);
+        const roomStatusLabels = @Html.Raw(roomStatusLabelsJson);
+        const roomStatusData = @Html.Raw(roomStatusDataJson);
+
+        // ─── Bar Chart - Doanh thu ─────────────
+        new Chart(document.getElementById('revenueChart'), {
+            type: 'bar',
+            data: {
+                labels: monthLabels,
+                datasets: [{
+                    label: 'Doanh thu (VNĐ)',
+                    data: monthlyRevenue,
+                    backgroundColor: 'rgba(59, 130, 246, 0.75)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    borderWidth: 1,
+                    borderRadius: 5,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => ctx.parsed.y.toLocaleString('vi-VN') + ' VNĐ'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: val => (val / 1000000).toFixed(1) + 'M'
+                        }
+                    }
+                }
+            }
+        });
+
+        // ─── Doughnut Chart - Tỷ lệ phòng ─────
+        new Chart(document.getElementById('roomStatusChart'), {
+            type: 'doughnut',
+            data: {
+                labels: roomStatusLabels,
+                datasets: [{
+                    data: roomStatusData,
+                    backgroundColor: ['rgba(34,197,94,0.8)', 'rgba(209,213,219,0.8)'],
+                    borderColor: ['rgba(34,197,94,1)', 'rgba(156,163,175,1)'],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 16, font: { size: 13 } }
+                    }
+                },
+                cutout: '65%'
+            }
+        });
+    </script>
+}
