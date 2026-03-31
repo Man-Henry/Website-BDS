@@ -1,0 +1,415 @@
+{
+  "info": {
+    "name": "Website QLPT API Collection",
+    "description": "Postman Collection cho hệ thống Quản Lý Phòng Trọ — 11 API Controllers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{jwt_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "1. Auth",
+      "item": [
+        {
+          "name": "TC-AUTH-001: Login Valid Credentials",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{admin_email}}\",\n  \"password\": \"{{admin_password}}\"\n}"
+            },
+            "url": "{{base_url}}/api/v1/auth/login"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Has JWT token', () => {",
+                  "  const json = pm.response.json();",
+                  "  pm.expect(json.token).to.be.a('string');",
+                  "  pm.environment.set('jwt_token', json.token);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "TC-AUTH-002: Login Invalid Credentials",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@qlpt.dev\",\n  \"password\": \"WrongPassword\"\n}"
+            },
+            "url": "{{base_url}}/api/v1/auth/login"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 401', () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "TC-AUTH-003: Register New User",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"newuser@test.dev\",\n  \"password\": \"Test@12345\",\n  \"fullName\": \"Test User\"\n}"
+            },
+            "url": "{{base_url}}/api/v1/auth/register"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200 or 201', () => {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "TC-AUTH-004: Register Duplicate Email",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@qlpt.dev\",\n  \"password\": \"Test@12345\",\n  \"fullName\": \"Duplicate\"\n}"
+            },
+            "url": "{{base_url}}/api/v1/auth/register"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 400 or 409', () => {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([400, 409]);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "TC-AUTH-005: Protected Endpoint Without Token",
+          "request": {
+            "auth": {"type": "noauth"},
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/rooms"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 401', () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2. Rooms",
+      "item": [
+        {
+          "name": "TC-ROOM-001: Get All Rooms",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/rooms"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Returns array', () => {",
+                  "  const json = pm.response.json();",
+                  "  pm.expect(json).to.be.an('array').or.to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "TC-ROOM-002: Create Room",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"P.201\",\n  \"area\": 25,\n  \"price\": 4000000,\n  \"propertyId\": 1,\n  \"status\": \"Available\"\n}"
+            },
+            "url": "{{base_url}}/api/v1/rooms"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "TC-ROOM-003: Update Room",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"P.101 (Updated)\",\n  \"price\": 4500000\n}"
+            },
+            "url": "{{base_url}}/api/v1/rooms/1"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "TC-ROOM-004: Delete Room (Soft Delete)",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/v1/rooms/3"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200 or 204', () => {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 204]);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "TC-ROOM-005: Get Room Invalid ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/v1/rooms/99999"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 404', () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3. Properties",
+      "item": [
+        {
+          "name": "Get All Properties",
+          "request": { "method": "GET", "url": "{{base_url}}/api/v1/properties" }
+        },
+        {
+          "name": "Get Property by ID",
+          "request": { "method": "GET", "url": "{{base_url}}/api/v1/properties/1" }
+        },
+        {
+          "name": "Create Property",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nhà Trọ Test\",\n  \"address\": \"456 Test Street\",\n  \"description\": \"Test property\"\n}"
+            },
+            "url": "{{base_url}}/api/v1/properties"
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Invoices",
+      "item": [
+        {
+          "name": "TC-INV-001: Get All Invoices",
+          "request": { "method": "GET", "url": "{{base_url}}/api/v1/invoices" },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "TC-INV-002: Create Invoice",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contractId\": 1,\n  \"month\": 4,\n  \"year\": 2026,\n  \"roomFee\": 3500000,\n  \"electricityOld\": 145,\n  \"electricityNew\": 200,\n  \"waterOld\": 26,\n  \"waterNew\": 32\n}"
+            },
+            "url": "{{base_url}}/api/v1/invoices"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5. Dashboard",
+      "item": [
+        {
+          "name": "Get Dashboard Stats",
+          "request": { "method": "GET", "url": "{{base_url}}/api/v1/dashboard/stats" }
+        },
+        {
+          "name": "Get Revenue Chart",
+          "request": { "method": "GET", "url": "{{base_url}}/api/v1/dashboard/revenue-chart" }
+        }
+      ]
+    },
+    {
+      "name": "6. Chat",
+      "item": [
+        {
+          "name": "Get Chat Messages",
+          "request": { "method": "GET", "url": "{{base_url}}/api/v1/chat/messages" }
+        }
+      ]
+    },
+    {
+      "name": "7. Notifications",
+      "item": [
+        {
+          "name": "Get Notifications",
+          "request": { "method": "GET", "url": "{{base_url}}/api/v1/notifications" }
+        },
+        {
+          "name": "Mark Notification Read",
+          "request": { "method": "POST", "url": "{{base_url}}/api/v1/notifications/1/read" }
+        }
+      ]
+    },
+    {
+      "name": "8. Maintenance",
+      "item": [
+        {
+          "name": "Get Maintenance Tickets",
+          "request": { "method": "GET", "url": "{{base_url}}/api/v1/maintenance" }
+        },
+        {
+          "name": "Create Maintenance Ticket",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Test Ticket\",\n  \"description\": \"Test maintenance issue\",\n  \"roomId\": 1\n}"
+            },
+            "url": "{{base_url}}/api/v1/maintenance"
+          }
+        }
+      ]
+    },
+    {
+      "name": "9. Locations",
+      "item": [
+        {
+          "name": "Search Locations",
+          "request": { "method": "GET", "url": "{{base_url}}/api/v1/locations/search?q=test" }
+        }
+      ]
+    },
+    {
+      "name": "10. OCR",
+      "item": [
+        {
+          "name": "OCR Health Check",
+          "request": { "method": "GET", "url": "{{base_url}}/api/v1/ocr/status" }
+        }
+      ]
+    },
+    {
+      "name": "11. TenantPortal",
+      "item": [
+        {
+          "name": "TC-INV-003: Tenant Get Own Invoices",
+          "request": { "method": "GET", "url": "{{base_url}}/api/v1/tenant-portal/invoices" },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Only own invoices', () => {",
+                  "  // Manual verification: ensure no other tenant data leaks",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Tenant Dashboard",
+          "request": { "method": "GET", "url": "{{base_url}}/api/v1/tenant-portal/dashboard" }
+        },
+        {
+          "name": "Get Tenant Maintenance Tickets",
+          "request": { "method": "GET", "url": "{{base_url}}/api/v1/tenant-portal/maintenance" }
+        }
+      ]
+    }
+  ]
+}

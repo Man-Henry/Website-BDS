@@ -40,7 +40,7 @@ namespace Website_QLPT.Controllers
 
         private bool IsAdmin => User.IsInRole("Admin");
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Landlord")]
         public async Task<IActionResult> Index(int? month, int? year, string? status, int? page)
         {
             var ownerId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -78,7 +78,7 @@ namespace Website_QLPT.Controllers
             });
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Landlord")]
         public async Task<IActionResult> Create(int? contractId)
         {
             var ownerId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -116,7 +116,7 @@ namespace Website_QLPT.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Landlord")]
         public async Task<IActionResult> Create([Bind("ContractId,Month,Year,ElectricityOld,ElectricityNew,ElectricityPrice,WaterOld,WaterNew,WaterPrice,RoomFee,OtherFee,OtherFeeNote")] Invoice invoice)
         {
             var ownerId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -172,7 +172,7 @@ namespace Website_QLPT.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Landlord")]
         public async Task<IActionResult> MarkAsPaid(int id)
         {
             var ownerId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -195,7 +195,7 @@ namespace Website_QLPT.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Landlord")]
         public async Task<IActionResult> SendEmailInvoice(int id)
         {
             var ownerId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -298,7 +298,7 @@ namespace Website_QLPT.Controllers
             return View(invoice);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Landlord")]
         public async Task<IActionResult> ExportExcel(int? month, int? year, string? status)
         {
             var ownerId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -359,7 +359,7 @@ namespace Website_QLPT.Controllers
                 $"HoaDon_T{selectedMonth}_{selectedYear}.xlsx");
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Landlord")]
         public async Task<IActionResult> AuditLog(int? page)
         {
             var ownerId = User.FindFirstValue(ClaimTypes.NameIdentifier);

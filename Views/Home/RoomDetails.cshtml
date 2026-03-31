@@ -20,8 +20,8 @@
 
 @section Styles {
     <!-- Leaflet CSS (only on this page) -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="~/lib/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="~/lib/leaflet/leaflet-routing-machine.css" />
     <style>
         #routingMap { height: 400px; width: 100%; border-radius: 8px; border: 1px solid #dee2e6; z-index: 1; }
         .room-img-main { height: 400px; width: 100%; object-fit: cover; border-radius: 8px; }
@@ -129,8 +129,8 @@
 
 @section Scripts {
     <!-- Leaflet JS (only when map is needed) -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js" defer></script>
+    <script src="~/lib/leaflet/leaflet.js" defer></script>
+    <script src="~/lib/leaflet/leaflet-routing-machine.js" defer></script>
 
     @if (Model.Property?.Latitude != null && Model.Property?.Longitude != null)
     {

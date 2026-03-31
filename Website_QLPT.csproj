@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>Website_QLPT-6a8f9d84-7e1a-4b24-a123-8c5f0e9327ce</UserSecretsId>
+    <DefaultItemExcludes>$(DefaultItemExcludes);Website_QLPT.Tests\**</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>

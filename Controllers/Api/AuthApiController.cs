@@ -1,6 +1,7 @@
 using Asp.Versioning;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
@@ -12,6 +13,7 @@ namespace Website_QLPT.Controllers.Api
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/auth")]
     [ApiController]
+    [EnableRateLimiting("AuthPolicy")]
     public class AuthApiController : ControllerBase
     {
         private readonly UserManager<IdentityUser> _userManager;

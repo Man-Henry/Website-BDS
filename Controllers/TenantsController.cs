@@ -10,7 +10,7 @@ using X.PagedList;
 
 namespace Website_QLPT.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Landlord")]
     public class TenantsController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -135,6 +135,10 @@ namespace Website_QLPT.Areas.Identity.Pages.Account
                         {
                             return LocalRedirect(Url.Content("~/Dashboard"));
                         }
+                        else if (user != null && await _signInManager.UserManager.IsInRoleAsync(user, "Landlord"))
+                        {
+                            return LocalRedirect(Url.Content("~/Dashboard"));
+                        }
                         else if (user != null && await _signInManager.UserManager.IsInRoleAsync(user, "Tenant"))
                         {
                             return LocalRedirect(Url.Content("~/TenantDashboard"));

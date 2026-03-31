@@ -1,4 +1,6 @@
-version: '3.4'
+# ═══════════════════════════════════════════════════════════════════════════════
+# docker-compose.yml — Website QLPT (Development + Production)
+# ═══════════════════════════════════════════════════════════════════════════════
 
 services:
   website_qlpt:
@@ -7,12 +9,21 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:80"
+      - "8080:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
       - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=QLPT_DB;User=sa;Password=Your_password123;TrustServerCertificate=True
+      - Jwt__Key=Website_QLPT_SuperSecretKey_1234567890_Website_QLPT_SuperSecretKey_1234567890
+      - Jwt__Issuer=Website_QLPT
+      - Jwt__Audience=Website_QLPT_Mobile
     depends_on:
-      - sqlserver
+      sqlserver:
+        condition: service_healthy
+    restart: unless-stopped
+    volumes:
+      - app-uploads:/app/wwwroot/uploads
+      - app-logs:/app/logs
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
@@ -21,3 +32,17 @@ services:
     environment:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=Your_password123
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    restart: unless-stopped
+    healthcheck:
+      test: /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "Your_password123" -C -Q "SELECT 1" -b -o /dev/null
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+volumes:
+  sqlserver-data:
+  app-uploads:
+  app-logs:

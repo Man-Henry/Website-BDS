@@ -1,0 +1,650 @@
+﻿Build started 28/03/2026 4:25:14 CH.
+     1>Project "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\Website_QLPT.Tests.csproj" on node 1 (Restore target(s)).
+     1>_GetAllRestoreProjectPathItems:
+         Determining projects to restore...
+     1>Project "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\Website_QLPT.Tests.csproj" (1) is building "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.csproj" (2:4) on node 1 (_GenerateProjectRestoreGraph target(s)).
+     2>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.5
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.5\data\PackageOverrides.txt
+         Loading prune package data from PrunePackageData folder
+         Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+         Looking for targeting packs in C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref
+         Pack directories found: C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.5
+         Found package overrides file C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\10.0.5\data\PackageOverrides.txt
+     2>Done Building Project "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.csproj" (_GenerateProjectRestoreGraph target(s)).
+     1>Restore:
+         X.509 certificate chain validation will use the default trust store selected by .NET for code signing.
+         X.509 certificate chain validation will use the default trust store selected by .NET for timestamping.
+         Assets file has not changed. Skipping assets file writing. Path: C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\obj\project.assets.json
+         Assets file has not changed. Skipping assets file writing. Path: C:\Users\ManHenry\source\repos\Website_QLPT\obj\project.assets.json
+         Restored C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\Website_QLPT.Tests.csproj (in 95 ms).
+         Restored C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.csproj (in 95 ms).
+         
+         NuGet Config files used:
+             C:\Users\ManHenry\AppData\Roaming\NuGet\NuGet.Config
+             C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.FallbackLocation.config
+             C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.Offline.config
+         
+         Feeds used:
+             https://api.nuget.org/v3/index.json
+             C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
+             C:\Program Files\dotnet\library-packs
+         All projects are up-to-date for restore.
+     1>Done Building Project "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\Website_QLPT.Tests.csproj" (Restore target(s)).
+   1:7>Project "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\Website_QLPT.Tests.csproj" on node 1 (VSTest target(s)).
+     1>BuildProject:
+         Build started, please wait...
+   1:7>Project "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\Website_QLPT.Tests.csproj" (1:7) is building "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\Website_QLPT.Tests.csproj" (1:8) on node 1 (default targets).
+   1:8>Project "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\Website_QLPT.Tests.csproj" (1:8) is building "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.csproj" (2:6) on node 1 (default targets).
+     2>GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       CoreGenerateAssemblyInfo:
+       Skipping target "CoreGenerateAssemblyInfo" because all output files are up-to-date with respect to the input files.
+       _DiscoverMvcApplicationParts:
+       Skipping target "_DiscoverMvcApplicationParts" because all output files are up-to-date with respect to the input files.
+       _CoreGenerateRazorAssemblyInfo:
+       Skipping target "_CoreGenerateRazorAssemblyInfo" because all output files are up-to-date with respect to the input files.
+       _GenerateSourceLinkFile:
+         Source Link file 'obj\Debug\net10.0\Website_QLPT.sourcelink.json' is up-to-date.
+       CoreCompile:
+       Skipping target "CoreCompile" because all output files are up-to-date with respect to the input files.
+       _CreateAppHost:
+       Skipping target "_CreateAppHost" because all output files are up-to-date with respect to the input files.
+       _ProcessScopedCssFiles:
+       Skipping target "_ProcessScopedCssFiles" because all output files are up-to-date with respect to the input files.
+       ResolveBuildCompressedStaticWebAssetsConfiguration:
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ofa40bqe71-{0}-b9sayid5wm-b9sayid5wm.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\css\site.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\j9swiz3yzq-{0}-90yqlj465b-90yqlj465b.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\favicon.ico'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\vltxs1u3vm-{0}-xtxxf3hu2r-xtxxf3hu2r.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\js\site.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\14ipv7q33s-{0}-bqjiyaj88i-bqjiyaj88i.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-grid.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\rh65p086id-{0}-c2jlpeoesf-c2jlpeoesf.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-grid.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\eb27mqwgz2-{0}-erw9l3u2r3-erw9l3u2r3.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-grid.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9glsckmvxo-{0}-aexeepp0ev-aexeepp0ev.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-grid.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\hh8ihyobdx-{0}-d7shbmvgxk-d7shbmvgxk.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-grid.rtl.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\bww8ud00yd-{0}-ausgxo2sd3-ausgxo2sd3.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\edcrak57d7-{0}-k8d9w2qqmf-k8d9w2qqmf.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\sf8kf2lula-{0}-cosvhxvwiu-cosvhxvwiu.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\3tzsqhslk9-{0}-ub07r2b239-ub07r2b239.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-reboot.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\oxk5o6czdw-{0}-fvhpjtyr6v-fvhpjtyr6v.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-reboot.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\k8b25g0zwc-{0}-b7pk76d08c-b7pk76d08c.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-reboot.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\8axix7wldr-{0}-fsbi9cje9m-fsbi9cje9m.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\d5z9sfpxbi-{0}-rzd6atqjts-rzd6atqjts.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\u8428c4e9i-{0}-ee0r1s7dh0-ee0r1s7dh0.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\tg53r17ghy-{0}-dxx9fxp4il-dxx9fxp4il.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\nlrl0f3xs3-{0}-jd9uben2k1-jd9uben2k1.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1fc4q00scq-{0}-khv3u5hwcm-khv3u5hwcm.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-utilities.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\8xykfy6qmd-{0}-r4e9w2rdcm-r4e9w2rdcm.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-utilities.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\vsrbd71spn-{0}-lcd1t2u6c8-lcd1t2u6c8.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-utilities.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\cynp17w084-{0}-c2oey78nd0-c2oey78nd0.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\7o8oyvng68-{0}-tdbxkamptv-tdbxkamptv.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\h9vwtoirpy-{0}-j5mq2jizvt-j5mq2jizvt.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\o5k23vqhrk-{0}-06098lyss8-06098lyss8.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\iznc766avz-{0}-nvvlpmu67g-nvvlpmu67g.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ns4583i71s-{0}-s35ty4nyc5-s35ty4nyc5.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\47012z8l2l-{0}-pj5nd1wqec-pj5nd1wqec.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\4vzefxwp2m-{0}-46ein0sx1k-46ein0sx1k.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\bh4v3mdph9-{0}-v0zj4ognzu-v0zj4ognzu.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\l186vlgaag-{0}-37tfw0ft22-37tfw0ft22.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap.rtl.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\rsc7qacj1u-{0}-hrwsygsryq-hrwsygsryq.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap.rtl.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\z408qb6q7a-{0}-pk9g2wxc8p-pk9g2wxc8p.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap.rtl.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\qfr28sqcy1-{0}-ft3s53vfgj-ft3s53vfgj.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\0k1i85ntyh-{0}-6cfz1n2cew-6cfz1n2cew.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\js\bootstrap.bundle.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\xa379ftczi-{0}-6pdc2jztkx-6pdc2jztkx.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\js\bootstrap.bundle.js.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\lr5hmrr0j7-{0}-493y06b0oq-493y06b0oq.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\js\bootstrap.bundle.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ivy2s9gwh5-{0}-iovd86k7lj-iovd86k7lj.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\higufxz8op-{0}-vr1egmr9el-vr1egmr9el.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\js\bootstrap.esm.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\s3tglgz8hr-{0}-kbrnm935zg-kbrnm935zg.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\js\bootstrap.esm.js.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\vw9sls9bhj-{0}-jj8uyg4cgr-jj8uyg4cgr.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\js\bootstrap.esm.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ym8tkpcl2i-{0}-y7v9cxd14o-y7v9cxd14o.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\js\bootstrap.esm.min.js.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\zzna4nrm5w-{0}-notf2xhcfb-notf2xhcfb.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\js\bootstrap.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\igscs4x0yk-{0}-h1s4sie4z3-h1s4sie4z3.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\js\bootstrap.js.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\zap00c0tb5-{0}-63fj8s7r0e-63fj8s7r0e.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\js\bootstrap.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\pogzkicjpz-{0}-0j3bgjxly4-0j3bgjxly4.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\bootstrap\dist\js\bootstrap.min.js.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\j3hwsq15kh-{0}-47otxtyo56-47otxtyo56.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\q3naettu8c-{0}-4v8eqarkd7-4v8eqarkd7.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ldxy2n3w6q-{0}-356vix0kms-356vix0kms.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery-validation-unobtrusive\LICENSE.txt'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ypthv7q62w-{0}-83jwlth58m-83jwlth58m.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery-validation\dist\additional-methods.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\t6e3b82hrf-{0}-mrlpezrjn3-mrlpezrjn3.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery-validation\dist\additional-methods.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\uocis9wxbx-{0}-lzl9nlhx6b-lzl9nlhx6b.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery-validation\dist\jquery.validate.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2tikzqlmtu-{0}-ag7o75518u-ag7o75518u.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery-validation\dist\jquery.validate.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9muusbdg0a-{0}-x0q3zqp4vz-x0q3zqp4vz.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery-validation\LICENSE.md'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\tpsq5dibur-{0}-0i3buxo5is-0i3buxo5is.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery\dist\jquery.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\t0qo7o574p-{0}-o1o13a6vjx-o1o13a6vjx.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery\dist\jquery.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\b9lhb08218-{0}-ttgo8qnofa-ttgo8qnofa.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery\dist\jquery.min.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\a3ygkwa5zy-{0}-2z0ns9nrw6-2z0ns9nrw6.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery\dist\jquery.slim.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\nezrqnk58p-{0}-muycvpuwrr-muycvpuwrr.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery\dist\jquery.slim.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\v0zgfp0y55-{0}-87fc7y1x7t-87fc7y1x7t.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery\dist\jquery.slim.min.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\yfc7ypekbg-{0}-mlv21k5csn-mlv21k5csn.gz' for 'C:\Users\ManHenry\.nuget\packages\microsoft.aspnetcore.identity.ui\10.0.3\staticwebassets\V5\lib\jquery\LICENSE.txt'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\seeqx7o1vu-{0}-izsokp4lem-izsokp4lem.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\css\admin.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\k4jkfm4kz8-{0}-b9sayid5wm-b9sayid5wm.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\css\site.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\jzlw5aj4e6-{0}-61n19gt1b8-61n19gt1b8.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\favicon.ico'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\kwq0wxp6en-{0}-kt473kev5c-kt473kev5c.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\js\admin.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\o0k3d19u0b-{0}-9d7cjiv0tt-9d7cjiv0tt.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\js\notification.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9gydjpw7dq-{0}-xtxxf3hu2r-xtxxf3hu2r.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\js\site.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\uwuu9ndw8h-{0}-26f9b7qkas-26f9b7qkas.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap-icons\bootstrap-icons.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\kc2a8226hg-{0}-bqjiyaj88i-bqjiyaj88i.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\c28f25pjm1-{0}-c2jlpeoesf-c2jlpeoesf.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9ceuxhg76b-{0}-erw9l3u2r3-erw9l3u2r3.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\dvr90wxsmr-{0}-aexeepp0ev-aexeepp0ev.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ewi3uv2afi-{0}-d7shbmvgxk-d7shbmvgxk.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\x7w95i74zb-{0}-ausgxo2sd3-ausgxo2sd3.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\y9fl0g3enp-{0}-k8d9w2qqmf-k8d9w2qqmf.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\b2lp9atz90-{0}-cosvhxvwiu-cosvhxvwiu.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\t0ljz343bq-{0}-ub07r2b239-ub07r2b239.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\dy38xogxop-{0}-fvhpjtyr6v-fvhpjtyr6v.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9bfeyzpajw-{0}-b7pk76d08c-b7pk76d08c.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\otdyp0484d-{0}-fsbi9cje9m-fsbi9cje9m.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\jl6zf3ziyc-{0}-rzd6atqjts-rzd6atqjts.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\k2p6tszdix-{0}-ee0r1s7dh0-ee0r1s7dh0.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\d3fy9pytn6-{0}-dxx9fxp4il-dxx9fxp4il.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\za40geocvh-{0}-jd9uben2k1-jd9uben2k1.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1tvwfmal4y-{0}-khv3u5hwcm-khv3u5hwcm.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2x49wo4yts-{0}-r4e9w2rdcm-r4e9w2rdcm.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2obrbmtee9-{0}-lcd1t2u6c8-lcd1t2u6c8.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\68a5lyme82-{0}-c2oey78nd0-c2oey78nd0.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\0xvlmmfk8m-{0}-tdbxkamptv-tdbxkamptv.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1h2zfn2xvq-{0}-j5mq2jizvt-j5mq2jizvt.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\359fqdrd30-{0}-06098lyss8-06098lyss8.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\jbj7r1q1xg-{0}-nvvlpmu67g-nvvlpmu67g.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\b88zs8igzs-{0}-s35ty4nyc5-s35ty4nyc5.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\xq3t33is9p-{0}-pj5nd1wqec-pj5nd1wqec.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\fkv7cnu4l4-{0}-46ein0sx1k-46ein0sx1k.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\rn3dhnj85m-{0}-v0zj4ognzu-v0zj4ognzu.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\8bcbj2mqv9-{0}-37tfw0ft22-37tfw0ft22.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\q7pmy9q9ci-{0}-hrwsygsryq-hrwsygsryq.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ouz6tddoqs-{0}-pk9g2wxc8p-pk9g2wxc8p.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1m9ws32oxk-{0}-ft3s53vfgj-ft3s53vfgj.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\d2tgfdwq7f-{0}-6cfz1n2cew-6cfz1n2cew.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\hmoyboxkh6-{0}-6pdc2jztkx-6pdc2jztkx.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\5ms2eer9r7-{0}-493y06b0oq-493y06b0oq.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\bpwwa7d79g-{0}-iovd86k7lj-iovd86k7lj.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\sxguewynex-{0}-vr1egmr9el-vr1egmr9el.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9dt6d5sumv-{0}-kbrnm935zg-kbrnm935zg.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2quk8bhxhl-{0}-jj8uyg4cgr-jj8uyg4cgr.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2vt1ngvewf-{0}-y7v9cxd14o-y7v9cxd14o.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\40j7tpw5vv-{0}-notf2xhcfb-notf2xhcfb.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\gka2uieiad-{0}-h1s4sie4z3-h1s4sie4z3.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\56368bikyo-{0}-63fj8s7r0e-63fj8s7r0e.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\zac9yodaig-{0}-0j3bgjxly4-0j3bgjxly4.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\fs9y5nt12o-{0}-47otxtyo56-47otxtyo56.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\6e3yf4c76d-{0}-4v8eqarkd7-4v8eqarkd7.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1uk99xskeo-{0}-356vix0kms-356vix0kms.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\4c17z948ch-{0}-83jwlth58m-83jwlth58m.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\dist\additional-methods.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\wyq7jbghra-{0}-mrlpezrjn3-mrlpezrjn3.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\dist\additional-methods.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\sb4svzzs65-{0}-lzl9nlhx6b-lzl9nlhx6b.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\dist\jquery.validate.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\hb8dmm4sij-{0}-ag7o75518u-ag7o75518u.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\kd53ss0l42-{0}-x0q3zqp4vz-x0q3zqp4vz.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\LICENSE.md'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ioz21n6kjr-{0}-0i3buxo5is-0i3buxo5is.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9yf6mkx8ic-{0}-o1o13a6vjx-o1o13a6vjx.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\k29phseod0-{0}-ttgo8qnofa-ttgo8qnofa.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.min.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\oiachs2h4z-{0}-2z0ns9nrw6-2z0ns9nrw6.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.slim.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\81ttqx7fqx-{0}-muycvpuwrr-muycvpuwrr.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.slim.min.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\vc4kpj2w3q-{0}-87fc7y1x7t-87fc7y1x7t.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.slim.min.map'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\rie0halbd4-{0}-mlv21k5csn-mlv21k5csn.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\LICENSE.txt'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\r832c8khgh-{0}-hv3dsmh77s-hv3dsmh77s.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\manifest.json'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\m0yzvhvzxr-{0}-chqv55ceo0-chqv55ceo0.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\robots.txt'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ozw68fdnzx-{0}-f3lpfgj1r0-f3lpfgj1r0.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\sw.js'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\8dsf6ympeo-{0}-elerq87ita-elerq87ita.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\scopedcss\bundle\Website_QLPT.styles.css'.
+         Accepted compressed asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\tuv4x2vu8i-{0}-elerq87ita-elerq87ita.gz' for 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\scopedcss\projectbundle\Website_QLPT.bundle.scp.css'.
+         Resolved 133 compressed assets for 133 candidate assets.
+       ResolveBuildCompressedStaticWebAssets:
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\kwq0wxp6en-{0}-kt473kev5c-kt473kev5c.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\yfc7ypekbg-{0}-mlv21k5csn-mlv21k5csn.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\v0zgfp0y55-{0}-87fc7y1x7t-87fc7y1x7t.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\nezrqnk58p-{0}-muycvpuwrr-muycvpuwrr.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\a3ygkwa5zy-{0}-2z0ns9nrw6-2z0ns9nrw6.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\b9lhb08218-{0}-ttgo8qnofa-ttgo8qnofa.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\t0qo7o574p-{0}-o1o13a6vjx-o1o13a6vjx.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\tpsq5dibur-{0}-0i3buxo5is-0i3buxo5is.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9muusbdg0a-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2tikzqlmtu-{0}-ag7o75518u-ag7o75518u.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\uocis9wxbx-{0}-lzl9nlhx6b-lzl9nlhx6b.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\t6e3b82hrf-{0}-mrlpezrjn3-mrlpezrjn3.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ypthv7q62w-{0}-83jwlth58m-83jwlth58m.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ldxy2n3w6q-{0}-356vix0kms-356vix0kms.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\q3naettu8c-{0}-4v8eqarkd7-4v8eqarkd7.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\j3hwsq15kh-{0}-47otxtyo56-47otxtyo56.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\pogzkicjpz-{0}-0j3bgjxly4-0j3bgjxly4.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\zap00c0tb5-{0}-63fj8s7r0e-63fj8s7r0e.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\igscs4x0yk-{0}-h1s4sie4z3-h1s4sie4z3.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\zzna4nrm5w-{0}-notf2xhcfb-notf2xhcfb.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ym8tkpcl2i-{0}-y7v9cxd14o-y7v9cxd14o.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\vw9sls9bhj-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\s3tglgz8hr-{0}-kbrnm935zg-kbrnm935zg.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\higufxz8op-{0}-vr1egmr9el-vr1egmr9el.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ivy2s9gwh5-{0}-iovd86k7lj-iovd86k7lj.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\lr5hmrr0j7-{0}-493y06b0oq-493y06b0oq.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\xa379ftczi-{0}-6pdc2jztkx-6pdc2jztkx.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\0k1i85ntyh-{0}-6cfz1n2cew-6cfz1n2cew.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\qfr28sqcy1-{0}-ft3s53vfgj-ft3s53vfgj.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\z408qb6q7a-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\rsc7qacj1u-{0}-hrwsygsryq-hrwsygsryq.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\l186vlgaag-{0}-37tfw0ft22-37tfw0ft22.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\bh4v3mdph9-{0}-v0zj4ognzu-v0zj4ognzu.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\4vzefxwp2m-{0}-46ein0sx1k-46ein0sx1k.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\47012z8l2l-{0}-pj5nd1wqec-pj5nd1wqec.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ns4583i71s-{0}-s35ty4nyc5-s35ty4nyc5.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\iznc766avz-{0}-nvvlpmu67g-nvvlpmu67g.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\o5k23vqhrk-{0}-06098lyss8-06098lyss8.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\h9vwtoirpy-{0}-j5mq2jizvt-j5mq2jizvt.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\7o8oyvng68-{0}-tdbxkamptv-tdbxkamptv.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\cynp17w084-{0}-c2oey78nd0-c2oey78nd0.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\vsrbd71spn-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\8xykfy6qmd-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1fc4q00scq-{0}-khv3u5hwcm-khv3u5hwcm.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\nlrl0f3xs3-{0}-jd9uben2k1-jd9uben2k1.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\tg53r17ghy-{0}-dxx9fxp4il-dxx9fxp4il.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\u8428c4e9i-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\d5z9sfpxbi-{0}-rzd6atqjts-rzd6atqjts.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\8axix7wldr-{0}-fsbi9cje9m-fsbi9cje9m.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\k8b25g0zwc-{0}-b7pk76d08c-b7pk76d08c.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\oxk5o6czdw-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\3tzsqhslk9-{0}-ub07r2b239-ub07r2b239.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\sf8kf2lula-{0}-cosvhxvwiu-cosvhxvwiu.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\edcrak57d7-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\bww8ud00yd-{0}-ausgxo2sd3-ausgxo2sd3.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\hh8ihyobdx-{0}-d7shbmvgxk-d7shbmvgxk.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9glsckmvxo-{0}-aexeepp0ev-aexeepp0ev.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\eb27mqwgz2-{0}-erw9l3u2r3-erw9l3u2r3.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\rh65p086id-{0}-c2jlpeoesf-c2jlpeoesf.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\14ipv7q33s-{0}-bqjiyaj88i-bqjiyaj88i.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\j9swiz3yzq-{0}-90yqlj465b-90yqlj465b.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ofa40bqe71-{0}-b9sayid5wm-b9sayid5wm.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\jzlw5aj4e6-{0}-61n19gt1b8-61n19gt1b8.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\seeqx7o1vu-{0}-izsokp4lem-izsokp4lem.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\uwuu9ndw8h-{0}-26f9b7qkas-26f9b7qkas.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\kc2a8226hg-{0}-bqjiyaj88i-bqjiyaj88i.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\c28f25pjm1-{0}-c2jlpeoesf-c2jlpeoesf.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9ceuxhg76b-{0}-erw9l3u2r3-erw9l3u2r3.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\dvr90wxsmr-{0}-aexeepp0ev-aexeepp0ev.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ewi3uv2afi-{0}-d7shbmvgxk-d7shbmvgxk.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\x7w95i74zb-{0}-ausgxo2sd3-ausgxo2sd3.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\y9fl0g3enp-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\b2lp9atz90-{0}-cosvhxvwiu-cosvhxvwiu.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\t0ljz343bq-{0}-ub07r2b239-ub07r2b239.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\dy38xogxop-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9bfeyzpajw-{0}-b7pk76d08c-b7pk76d08c.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\otdyp0484d-{0}-fsbi9cje9m-fsbi9cje9m.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\jl6zf3ziyc-{0}-rzd6atqjts-rzd6atqjts.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\k2p6tszdix-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\d3fy9pytn6-{0}-dxx9fxp4il-dxx9fxp4il.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\za40geocvh-{0}-jd9uben2k1-jd9uben2k1.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1tvwfmal4y-{0}-khv3u5hwcm-khv3u5hwcm.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2x49wo4yts-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2obrbmtee9-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\68a5lyme82-{0}-c2oey78nd0-c2oey78nd0.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\0xvlmmfk8m-{0}-tdbxkamptv-tdbxkamptv.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1h2zfn2xvq-{0}-j5mq2jizvt-j5mq2jizvt.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\359fqdrd30-{0}-06098lyss8-06098lyss8.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\jbj7r1q1xg-{0}-nvvlpmu67g-nvvlpmu67g.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\b88zs8igzs-{0}-s35ty4nyc5-s35ty4nyc5.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\xq3t33is9p-{0}-pj5nd1wqec-pj5nd1wqec.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\fkv7cnu4l4-{0}-46ein0sx1k-46ein0sx1k.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\rn3dhnj85m-{0}-v0zj4ognzu-v0zj4ognzu.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\8bcbj2mqv9-{0}-37tfw0ft22-37tfw0ft22.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\q7pmy9q9ci-{0}-hrwsygsryq-hrwsygsryq.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ouz6tddoqs-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1m9ws32oxk-{0}-ft3s53vfgj-ft3s53vfgj.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\d2tgfdwq7f-{0}-6cfz1n2cew-6cfz1n2cew.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\hmoyboxkh6-{0}-6pdc2jztkx-6pdc2jztkx.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\5ms2eer9r7-{0}-493y06b0oq-493y06b0oq.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\bpwwa7d79g-{0}-iovd86k7lj-iovd86k7lj.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\sxguewynex-{0}-vr1egmr9el-vr1egmr9el.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9dt6d5sumv-{0}-kbrnm935zg-kbrnm935zg.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2quk8bhxhl-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2vt1ngvewf-{0}-y7v9cxd14o-y7v9cxd14o.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\40j7tpw5vv-{0}-notf2xhcfb-notf2xhcfb.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\gka2uieiad-{0}-h1s4sie4z3-h1s4sie4z3.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\56368bikyo-{0}-63fj8s7r0e-63fj8s7r0e.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\zac9yodaig-{0}-0j3bgjxly4-0j3bgjxly4.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\fs9y5nt12o-{0}-47otxtyo56-47otxtyo56.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\6e3yf4c76d-{0}-4v8eqarkd7-4v8eqarkd7.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1uk99xskeo-{0}-356vix0kms-356vix0kms.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\4c17z948ch-{0}-83jwlth58m-83jwlth58m.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\wyq7jbghra-{0}-mrlpezrjn3-mrlpezrjn3.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\sb4svzzs65-{0}-lzl9nlhx6b-lzl9nlhx6b.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\hb8dmm4sij-{0}-ag7o75518u-ag7o75518u.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\kd53ss0l42-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ioz21n6kjr-{0}-0i3buxo5is-0i3buxo5is.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9yf6mkx8ic-{0}-o1o13a6vjx-o1o13a6vjx.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\k29phseod0-{0}-ttgo8qnofa-ttgo8qnofa.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\oiachs2h4z-{0}-2z0ns9nrw6-2z0ns9nrw6.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\81ttqx7fqx-{0}-muycvpuwrr-muycvpuwrr.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\vc4kpj2w3q-{0}-87fc7y1x7t-87fc7y1x7t.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\rie0halbd4-{0}-mlv21k5csn-mlv21k5csn.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\8dsf6ympeo-{0}-elerq87ita-elerq87ita.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\tuv4x2vu8i-{0}-elerq87ita-elerq87ita.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\k4jkfm4kz8-{0}-b9sayid5wm-b9sayid5wm.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9gydjpw7dq-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\vltxs1u3vm-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\o0k3d19u0b-{0}-9d7cjiv0tt-9d7cjiv0tt.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\r832c8khgh-{0}-hv3dsmh77s-hv3dsmh77s.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\m0yzvhvzxr-{0}-chqv55ceo0-chqv55ceo0.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ozw68fdnzx-{0}-f3lpfgj1r0-f3lpfgj1r0.gz
+       _BuildCopyStaticWebAssetsPreserveNewest:
+       Skipping target "_BuildCopyStaticWebAssetsPreserveNewest" because it has no outputs.
+       _CopyOutOfDateSourceItemsToOutputDirectory:
+       Skipping target "_CopyOutOfDateSourceItemsToOutputDirectory" because all output files are up-to-date with respect to the input files.
+       GenerateBuildDependencyFile:
+       Skipping target "GenerateBuildDependencyFile" because all output files are up-to-date with respect to the input files.
+       GenerateBuildRuntimeConfigurationFiles:
+       Skipping target "GenerateBuildRuntimeConfigurationFiles" because all output files are up-to-date with respect to the input files.
+       CopyFilesToOutputDirectory:
+         Website_QLPT -> C:\Users\ManHenry\source\repos\Website_QLPT\bin\Debug\net10.0\Website_QLPT.dll
+     2>Done Building Project "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.csproj" (default targets).
+     1>GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       CoreGenerateAssemblyInfo:
+       Skipping target "CoreGenerateAssemblyInfo" because all output files are up-to-date with respect to the input files.
+       _DiscoverMvcApplicationParts:
+       Skipping target "_DiscoverMvcApplicationParts" because all output files are up-to-date with respect to the input files.
+       _GenerateSourceLinkFile:
+         Source Link file 'obj\Debug\net10.0\Website_QLPT.Tests.sourcelink.json' is up-to-date.
+       CoreCompile:
+       Skipping target "CoreCompile" because all output files are up-to-date with respect to the input files.
+       _CreateAppHost:
+       Skipping target "_CreateAppHost" because all output files are up-to-date with respect to the input files.
+       _ProcessScopedCssFiles:
+       Skipping target "_ProcessScopedCssFiles" because it has no outputs.
+       _ProcessScopedCssFiles:
+       Skipping target "_ProcessScopedCssFiles" because it has no outputs.
+       ResolveBuildCompressedStaticWebAssetsConfiguration:
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\kwq0wxp6en-{0}-kt473kev5c-kt473kev5c.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\js\admin.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\jzlw5aj4e6-{0}-61n19gt1b8-61n19gt1b8.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\favicon.ico' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\seeqx7o1vu-{0}-izsokp4lem-izsokp4lem.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\css\admin.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\uwuu9ndw8h-{0}-26f9b7qkas-26f9b7qkas.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap-icons\bootstrap-icons.min.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\kc2a8226hg-{0}-bqjiyaj88i-bqjiyaj88i.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\c28f25pjm1-{0}-c2jlpeoesf-c2jlpeoesf.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9ceuxhg76b-{0}-erw9l3u2r3-erw9l3u2r3.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\dvr90wxsmr-{0}-aexeepp0ev-aexeepp0ev.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ewi3uv2afi-{0}-d7shbmvgxk-d7shbmvgxk.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\x7w95i74zb-{0}-ausgxo2sd3-ausgxo2sd3.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\y9fl0g3enp-{0}-k8d9w2qqmf-k8d9w2qqmf.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\b2lp9atz90-{0}-cosvhxvwiu-cosvhxvwiu.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\t0ljz343bq-{0}-ub07r2b239-ub07r2b239.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\dy38xogxop-{0}-fvhpjtyr6v-fvhpjtyr6v.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9bfeyzpajw-{0}-b7pk76d08c-b7pk76d08c.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\otdyp0484d-{0}-fsbi9cje9m-fsbi9cje9m.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\jl6zf3ziyc-{0}-rzd6atqjts-rzd6atqjts.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\k2p6tszdix-{0}-ee0r1s7dh0-ee0r1s7dh0.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\d3fy9pytn6-{0}-dxx9fxp4il-dxx9fxp4il.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\za40geocvh-{0}-jd9uben2k1-jd9uben2k1.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1tvwfmal4y-{0}-khv3u5hwcm-khv3u5hwcm.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2x49wo4yts-{0}-r4e9w2rdcm-r4e9w2rdcm.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2obrbmtee9-{0}-lcd1t2u6c8-lcd1t2u6c8.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\68a5lyme82-{0}-c2oey78nd0-c2oey78nd0.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\0xvlmmfk8m-{0}-tdbxkamptv-tdbxkamptv.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1h2zfn2xvq-{0}-j5mq2jizvt-j5mq2jizvt.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\359fqdrd30-{0}-06098lyss8-06098lyss8.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\jbj7r1q1xg-{0}-nvvlpmu67g-nvvlpmu67g.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\b88zs8igzs-{0}-s35ty4nyc5-s35ty4nyc5.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\xq3t33is9p-{0}-pj5nd1wqec-pj5nd1wqec.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\fkv7cnu4l4-{0}-46ein0sx1k-46ein0sx1k.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\rn3dhnj85m-{0}-v0zj4ognzu-v0zj4ognzu.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\8bcbj2mqv9-{0}-37tfw0ft22-37tfw0ft22.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\q7pmy9q9ci-{0}-hrwsygsryq-hrwsygsryq.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ouz6tddoqs-{0}-pk9g2wxc8p-pk9g2wxc8p.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1m9ws32oxk-{0}-ft3s53vfgj-ft3s53vfgj.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\d2tgfdwq7f-{0}-6cfz1n2cew-6cfz1n2cew.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\hmoyboxkh6-{0}-6pdc2jztkx-6pdc2jztkx.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\5ms2eer9r7-{0}-493y06b0oq-493y06b0oq.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\bpwwa7d79g-{0}-iovd86k7lj-iovd86k7lj.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\sxguewynex-{0}-vr1egmr9el-vr1egmr9el.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9dt6d5sumv-{0}-kbrnm935zg-kbrnm935zg.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2quk8bhxhl-{0}-jj8uyg4cgr-jj8uyg4cgr.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2vt1ngvewf-{0}-y7v9cxd14o-y7v9cxd14o.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\40j7tpw5vv-{0}-notf2xhcfb-notf2xhcfb.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\gka2uieiad-{0}-h1s4sie4z3-h1s4sie4z3.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\56368bikyo-{0}-63fj8s7r0e-63fj8s7r0e.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\zac9yodaig-{0}-0j3bgjxly4-0j3bgjxly4.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\fs9y5nt12o-{0}-47otxtyo56-47otxtyo56.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\6e3yf4c76d-{0}-4v8eqarkd7-4v8eqarkd7.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1uk99xskeo-{0}-356vix0kms-356vix0kms.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\4c17z948ch-{0}-83jwlth58m-83jwlth58m.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\dist\additional-methods.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\wyq7jbghra-{0}-mrlpezrjn3-mrlpezrjn3.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\dist\additional-methods.min.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\sb4svzzs65-{0}-lzl9nlhx6b-lzl9nlhx6b.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\dist\jquery.validate.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\hb8dmm4sij-{0}-ag7o75518u-ag7o75518u.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\kd53ss0l42-{0}-x0q3zqp4vz-x0q3zqp4vz.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\LICENSE.md' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ioz21n6kjr-{0}-0i3buxo5is-0i3buxo5is.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9yf6mkx8ic-{0}-o1o13a6vjx-o1o13a6vjx.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.min.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\k29phseod0-{0}-ttgo8qnofa-ttgo8qnofa.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.min.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\oiachs2h4z-{0}-2z0ns9nrw6-2z0ns9nrw6.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.slim.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\81ttqx7fqx-{0}-muycvpuwrr-muycvpuwrr.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.slim.min.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\vc4kpj2w3q-{0}-87fc7y1x7t-87fc7y1x7t.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.slim.min.map' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\rie0halbd4-{0}-mlv21k5csn-mlv21k5csn.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\LICENSE.txt' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\8dsf6ympeo-{0}-elerq87ita-elerq87ita.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\scopedcss\bundle\Website_QLPT.styles.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\k4jkfm4kz8-{0}-b9sayid5wm-b9sayid5wm.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\css\site.css' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9gydjpw7dq-{0}-xtxxf3hu2r-xtxxf3hu2r.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\js\site.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\o0k3d19u0b-{0}-9d7cjiv0tt-9d7cjiv0tt.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\js\notification.js' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\r832c8khgh-{0}-hv3dsmh77s-hv3dsmh77s.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\manifest.json' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\m0yzvhvzxr-{0}-chqv55ceo0-chqv55ceo0.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\robots.txt' was detected as already compressed with format 'gzip'.
+         The asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ozw68fdnzx-{0}-f3lpfgj1r0-f3lpfgj1r0.gz' with related asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\sw.js' was detected as already compressed with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\css\admin.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\css\site.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\favicon.ico' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\js\admin.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\js\notification.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\js\site.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap-icons\bootstrap-icons.min.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\dist\additional-methods.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\dist\additional-methods.min.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\dist\jquery.validate.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery-validation\LICENSE.md' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.min.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.min.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.slim.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.slim.min.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\dist\jquery.slim.min.map' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\lib\jquery\LICENSE.txt' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\manifest.json' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\robots.txt' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\wwwroot\sw.js' because it was already resolved with format 'gzip'.
+         Ignoring asset 'C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\scopedcss\bundle\Website_QLPT.styles.css' because it was already resolved with format 'gzip'.
+         Resolved 0 compressed assets for 70 candidate assets.
+       ResolveBuildCompressedStaticWebAssets:
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\kwq0wxp6en-{0}-kt473kev5c-kt473kev5c.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\jzlw5aj4e6-{0}-61n19gt1b8-61n19gt1b8.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\seeqx7o1vu-{0}-izsokp4lem-izsokp4lem.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\uwuu9ndw8h-{0}-26f9b7qkas-26f9b7qkas.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\kc2a8226hg-{0}-bqjiyaj88i-bqjiyaj88i.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\c28f25pjm1-{0}-c2jlpeoesf-c2jlpeoesf.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9ceuxhg76b-{0}-erw9l3u2r3-erw9l3u2r3.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\dvr90wxsmr-{0}-aexeepp0ev-aexeepp0ev.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ewi3uv2afi-{0}-d7shbmvgxk-d7shbmvgxk.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\x7w95i74zb-{0}-ausgxo2sd3-ausgxo2sd3.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\y9fl0g3enp-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\b2lp9atz90-{0}-cosvhxvwiu-cosvhxvwiu.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\t0ljz343bq-{0}-ub07r2b239-ub07r2b239.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\dy38xogxop-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9bfeyzpajw-{0}-b7pk76d08c-b7pk76d08c.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\otdyp0484d-{0}-fsbi9cje9m-fsbi9cje9m.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\jl6zf3ziyc-{0}-rzd6atqjts-rzd6atqjts.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\k2p6tszdix-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\d3fy9pytn6-{0}-dxx9fxp4il-dxx9fxp4il.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\za40geocvh-{0}-jd9uben2k1-jd9uben2k1.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1tvwfmal4y-{0}-khv3u5hwcm-khv3u5hwcm.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2x49wo4yts-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2obrbmtee9-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\68a5lyme82-{0}-c2oey78nd0-c2oey78nd0.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\0xvlmmfk8m-{0}-tdbxkamptv-tdbxkamptv.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1h2zfn2xvq-{0}-j5mq2jizvt-j5mq2jizvt.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\359fqdrd30-{0}-06098lyss8-06098lyss8.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\jbj7r1q1xg-{0}-nvvlpmu67g-nvvlpmu67g.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\b88zs8igzs-{0}-s35ty4nyc5-s35ty4nyc5.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\xq3t33is9p-{0}-pj5nd1wqec-pj5nd1wqec.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\fkv7cnu4l4-{0}-46ein0sx1k-46ein0sx1k.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\rn3dhnj85m-{0}-v0zj4ognzu-v0zj4ognzu.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\8bcbj2mqv9-{0}-37tfw0ft22-37tfw0ft22.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\q7pmy9q9ci-{0}-hrwsygsryq-hrwsygsryq.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ouz6tddoqs-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1m9ws32oxk-{0}-ft3s53vfgj-ft3s53vfgj.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\d2tgfdwq7f-{0}-6cfz1n2cew-6cfz1n2cew.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\hmoyboxkh6-{0}-6pdc2jztkx-6pdc2jztkx.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\5ms2eer9r7-{0}-493y06b0oq-493y06b0oq.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\bpwwa7d79g-{0}-iovd86k7lj-iovd86k7lj.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\sxguewynex-{0}-vr1egmr9el-vr1egmr9el.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9dt6d5sumv-{0}-kbrnm935zg-kbrnm935zg.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2quk8bhxhl-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\2vt1ngvewf-{0}-y7v9cxd14o-y7v9cxd14o.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\40j7tpw5vv-{0}-notf2xhcfb-notf2xhcfb.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\gka2uieiad-{0}-h1s4sie4z3-h1s4sie4z3.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\56368bikyo-{0}-63fj8s7r0e-63fj8s7r0e.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\zac9yodaig-{0}-0j3bgjxly4-0j3bgjxly4.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\fs9y5nt12o-{0}-47otxtyo56-47otxtyo56.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\6e3yf4c76d-{0}-4v8eqarkd7-4v8eqarkd7.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\1uk99xskeo-{0}-356vix0kms-356vix0kms.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\4c17z948ch-{0}-83jwlth58m-83jwlth58m.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\wyq7jbghra-{0}-mrlpezrjn3-mrlpezrjn3.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\sb4svzzs65-{0}-lzl9nlhx6b-lzl9nlhx6b.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\hb8dmm4sij-{0}-ag7o75518u-ag7o75518u.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\kd53ss0l42-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ioz21n6kjr-{0}-0i3buxo5is-0i3buxo5is.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9yf6mkx8ic-{0}-o1o13a6vjx-o1o13a6vjx.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\k29phseod0-{0}-ttgo8qnofa-ttgo8qnofa.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\oiachs2h4z-{0}-2z0ns9nrw6-2z0ns9nrw6.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\81ttqx7fqx-{0}-muycvpuwrr-muycvpuwrr.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\vc4kpj2w3q-{0}-87fc7y1x7t-87fc7y1x7t.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\rie0halbd4-{0}-mlv21k5csn-mlv21k5csn.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\8dsf6ympeo-{0}-elerq87ita-elerq87ita.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\k4jkfm4kz8-{0}-b9sayid5wm-b9sayid5wm.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\9gydjpw7dq-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\o0k3d19u0b-{0}-9d7cjiv0tt-9d7cjiv0tt.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\r832c8khgh-{0}-hv3dsmh77s-hv3dsmh77s.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\m0yzvhvzxr-{0}-chqv55ceo0-chqv55ceo0.gz
+         Processing compressed asset: C:\Users\ManHenry\source\repos\Website_QLPT\obj\Debug\net10.0\compressed\ozw68fdnzx-{0}-f3lpfgj1r0-f3lpfgj1r0.gz
+       _BuildCopyStaticWebAssetsPreserveNewest:
+       Skipping target "_BuildCopyStaticWebAssetsPreserveNewest" because it has no outputs.
+       _CopyOutOfDateSourceItemsToOutputDirectory:
+       Building target "_CopyOutOfDateSourceItemsToOutputDirectory" partially, because some output files are out of date with respect to their input files.
+         Copying file from "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\obj\Debug\net10.0\MvcTestingAppManifest.json" to "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\bin\Debug\net10.0\MvcTestingAppManifest.json".
+       GenerateBuildDependencyFile:
+       Skipping target "GenerateBuildDependencyFile" because all output files are up-to-date with respect to the input files.
+       GenerateBuildRuntimeConfigurationFiles:
+       Skipping target "GenerateBuildRuntimeConfigurationFiles" because all output files are up-to-date with respect to the input files.
+       CopyFilesToOutputDirectory:
+         Website_QLPT.Tests -> C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\bin\Debug\net10.0\Website_QLPT.Tests.dll
+       _MvcCopyDependencyFiles:
+         Copying file from "C:\Users\ManHenry\source\repos\Website_QLPT\bin\Debug\net10.0\Website_QLPT.deps.json" to "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\bin\Debug\net10.0\Website_QLPT.deps.json".
+     1>Done Building Project "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\Website_QLPT.Tests.csproj" (default targets).
+     1>BuildProject:
+         Build completed.
+         
+Test run for C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\bin\Debug\net10.0\Website_QLPT.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.5)
+[xUnit.net 00:00:00.91]   Discovering: Website_QLPT.Tests
+[xUnit.net 00:00:00.99]   Discovered:  Website_QLPT.Tests
+[xUnit.net 00:00:01.01]   Starting:    Website_QLPT.Tests
+     Warning:
+     The component "Fluent Assertions" is governed by the rules defined in the Xceed License Agreement and
+     the Xceed Fluent Assertions Community License. You may use Fluent Assertions free of charge for
+     non-commercial use only. An active subscription is required to use Fluent Assertions for commercial use.
+     Please contact Xceed Sales mailto:sales@xceed.com to acquire a subscription at a very low cost.
+     A paid commercial license supports the development and continued increasing support of
+     Fluent Assertions users under both commercial and community licenses. Help us
+     keep Fluent Assertions at the forefront of unit testing.
+     For more information, visit https://xceed.com/products/unit-testing/fluent-assertions/
+[xUnit.net 00:00:02.84]     Website_QLPT.Tests.Architecture.ArchitectureTests.ApiControllers_ShouldInherit_ControllerBase [FAIL]
+[xUnit.net 00:00:02.84]       Expected result.IsSuccessful to be True because All API controllers should inherit from ControllerBase, but found False.
+[xUnit.net 00:00:02.84]       Stack Trace:
+[xUnit.net 00:00:02.84]            at FluentAssertions.Primitives.BooleanAssertions`1.BeTrue(String because, Object[] becauseArgs)
+[xUnit.net 00:00:02.84]         C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\Architecture\ArchitectureTests.cs(66,0): at Website_QLPT.Tests.Architecture.ArchitectureTests.ApiControllers_ShouldInherit_ControllerBase()
+[xUnit.net 00:00:02.84]            at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+[xUnit.net 00:00:02.84]            at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Passed Website_QLPT.Tests.Architecture.ArchitectureTests.Models_ShouldNot_DependOnControllers [1 s]
+  Passed Website_QLPT.Tests.Architecture.ArchitectureTests.Models_ShouldNot_DependOnServices [8 ms]
+  Failed Website_QLPT.Tests.Architecture.ArchitectureTests.ApiControllers_ShouldInherit_ControllerBase [155 ms]
+  Error Message:
+   Expected result.IsSuccessful to be True because All API controllers should inherit from ControllerBase, but found False.
+  Stack Trace:
+     at FluentAssertions.Primitives.BooleanAssertions`1.BeTrue(String because, Object[] becauseArgs)
+   at Website_QLPT.Tests.Architecture.ArchitectureTests.ApiControllers_ShouldInherit_ControllerBase() in C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\Architecture\ArchitectureTests.cs:line 66
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Passed Website_QLPT.Tests.Architecture.ArchitectureTests.DataLayer_ShouldNot_DependOnControllers [24 ms]
+  Passed Website_QLPT.Tests.Architecture.ArchitectureTests.MvcControllers_ShouldInherit_Controller [30 ms]
+  Passed Website_QLPT.Tests.Architecture.ArchitectureTests.Services_ShouldNot_DependOnControllers [11 ms]
+  Passed Website_QLPT.Tests.Architecture.ArchitectureTests.ApiControllers_ShouldHave_ApiControllerAttribute [4 ms]
+  Passed Website_QLPT.Tests.Controllers.AuthApiControllerTests.Login_LockedOutAccount_ReturnsUnauthorizedWithLockoutMessage [2 s]
+  Passed Website_QLPT.Tests.Controllers.AuthApiControllerTests.Login_InvalidCredentials_ReturnsUnauthorized [2 ms]
+  Passed Website_QLPT.Tests.Controllers.AuthApiControllerTests.Login_NonExistentEmail_ReturnsUnauthorized [1 ms]
+  Passed Website_QLPT.Tests.Controllers.AuthApiControllerTests.Login_ValidCredentials_ReturnsOkWithToken [463 ms]
+  Passed Website_QLPT.Tests.Controllers.AuthApiControllerTests.Login_Success_TokenContainsCorrectClaims [5 ms]
+  Passed Website_QLPT.Tests.Controllers.RoomsControllerTests.GetAvailableRooms_WithPriceFilter_ReturnsFilteredResults [3 s]
+  Passed Website_QLPT.Tests.Controllers.InvoicesApiControllerTests.ExportPdf_InvalidInvoiceId_ReturnsNotFound [3 s]
+  Passed Website_QLPT.Tests.Controllers.InvoicesApiControllerTests.ExportPdf_ServiceThrowsException_Returns500 [36 ms]
+[xUnit.net 00:00:04.72]   Finished:    Website_QLPT.Tests
+  Passed Website_QLPT.Tests.Controllers.InvoicesApiControllerTests.InvoiceModel_HasRequiredProperties [3 ms]
+  Passed Website_QLPT.Tests.Controllers.RoomsControllerTests.GetRoom_InvalidId_ReturnsNotFound [64 ms]
+  Passed Website_QLPT.Tests.Controllers.RoomsControllerTests.GetRoom_ValidId_ReturnsOkWithRoomDetails [8 ms]
+  Passed Website_QLPT.Tests.Controllers.InvoicesApiControllerTests.ExportPdf_ValidInvoice_ReturnsPdfFile [25 ms]
+  Passed Website_QLPT.Tests.Controllers.RoomsControllerTests.GetAvailableRooms_ExcessivePageSize_ClampedTo50 [25 ms]
+  Passed Website_QLPT.Tests.Controllers.RoomsControllerTests.GetAvailableRooms_WithPropertyFilter_ReturnsScopedResults [25 ms]
+  Passed Website_QLPT.Tests.Controllers.RoomsControllerTests.GetAvailableRooms_ReturnsOkWithPaginatedRooms [21 ms]
+
+Test Run Failed.
+Total tests: 22
+     Passed: 21
+     Failed: 1
+ Total time: 6,0741 Seconds
+       _VSTestConsole:
+         MSB4181: The "VSTestTask" task returned false but did not log an error.
+     1>Done Building Project "C:\Users\ManHenry\source\repos\Website_QLPT\Website_QLPT.Tests\Website_QLPT.Tests.csproj" (VSTest target(s)) -- FAILED.
+
+Build FAILED.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:09.39

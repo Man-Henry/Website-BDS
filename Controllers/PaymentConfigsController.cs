@@ -9,7 +9,7 @@ using System.Text.Json;
 
 namespace Website_QLPT.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Landlord")]
     public class PaymentConfigsController : Controller
     {
         private readonly ApplicationDbContext _context;

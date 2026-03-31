@@ -28,12 +28,26 @@
     <!-- Sidebar -->
     <aside class="admin-sidebar" id="adminSidebar">
         <div class="sidebar-brand">
-            <div class="brand-icon">
+            <a href="/" class="brand-icon" title="Về Trang Chủ" style="text-decoration:none;">
                 <i class="bi bi-buildings"></i>
-            </div>
+            </a>
             <div class="brand-text">
                 <span class="brand-name">QLPT</span>
                 <span class="brand-sub">Quản lý Phòng Trọ</span>
+            </div>
+        </div>
+
+        <!-- User Profile -->
+        <div class="sidebar-profile">
+            <div class="profile-avatar">
+                <i class="bi bi-person-fill"></i>
+            </div>
+            <div class="profile-info">
+                <span class="profile-name">@User.Identity?.Name</span>
+                <span class="profile-role">
+                    @if(User.IsInRole("Admin")) { <span class="badge-role admin">Admin</span> }
+                    @if(User.IsInRole("Landlord")) { <span class="badge-role landlord">Chủ nhà</span> }
+                </span>
             </div>
         </div>
 
@@ -103,6 +117,14 @@
                 <a asp-controller="Dashboard" asp-action="SystemReset" class="nav-item @(IsActive("Dashboard", "SystemReset"))">
                     <i class="bi bi-arrow-counterclockwise"></i>
                     <span>Reset Hệ Thống</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <span class="nav-section-label">TRANG CHỦ</span>
+                <a href="/" class="nav-item">
+                    <i class="bi bi-globe"></i>
+                    <span>Về Trang Chủ</span>
                 </a>
             </div>
         </nav>

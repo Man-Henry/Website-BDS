@@ -5,9 +5,21 @@
 }
 
 @section Styles {
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="~/lib/leaflet/leaflet.css" />
     <style>
         #map { height: 350px; width: 100%; border-radius: 8px; border: 1px solid #e2e4e8; margin-bottom: 5px; z-index: 1; }
+        .address-search-group { position: relative; }
+        .address-search-group .btn-geocode {
+            position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+            background: var(--col-accent, #4f6bed); color: #fff; border: none; border-radius: 6px;
+            padding: 5px 12px; font-size: 13px; cursor: pointer; transition: all .2s;
+        }
+        .address-search-group .btn-geocode:hover { background: var(--col-accent-dark, #3d5ad4); }
+        .address-search-group .btn-geocode:disabled { opacity: .6; cursor: wait; }
+        .geocode-status { font-size: 12px; margin-top: 4px; }
+        .geocode-status.success { color: #28a745; }
+        .geocode-status.error { color: #dc3545; }
+        .geocode-status.loading { color: #6c757d; }
     </style>
 }
 
@@ -33,7 +45,13 @@
             </div>
             <div class="mb-3">
                 <label asp-for="Address"></label>
-                <input asp-for="Address" class="form-control" placeholder="VD: 123 Nguyễn Văn Cừ, Q5, TP.HCM" />
+                <div class="address-search-group">
+                    <input asp-for="Address" class="form-control" id="addressInput" placeholder="VD: 123 Nguyễn Văn Cừ, Q5, TP.HCM" style="padding-right: 130px;" />
+                    <button type="button" class="btn-geocode" id="btnGeocode" title="Tìm vị trí trên bản đồ">
+                        <i class="bi bi-geo-alt-fill"></i> Tìm trên bản đồ
+                    </button>
+                </div>
+                <div class="geocode-status" id="geocodeStatus"></div>
             </div>
             <div class="mb-4">
                 <label asp-for="Description"></label>
@@ -44,7 +62,7 @@
                 <div id="map"></div>
                 <input type="hidden" asp-for="Latitude" id="Lat" />
                 <input type="hidden" asp-for="Longitude" id="Lng" />
-                <small class="text-muted"><i class="bi bi-geo-alt"></i> Click vào bản đồ để ghim tọa độ cho Khu nhà.</small>
+                <small class="text-muted"><i class="bi bi-geo-alt"></i> Nhập địa chỉ và nhấn "Tìm trên bản đồ" hoặc click trực tiếp vào bản đồ.</small>
             </div>
 
             <div class="d-flex gap-2">
@@ -58,10 +76,10 @@
 </div>
 
 @section Scripts {
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="~/lib/leaflet/leaflet.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var defaultLat = @(Model.Latitude ?? 10.762622); // Default HCM City
+            var defaultLat = @(Model.Latitude ?? 10.762622);
             var defaultLng = @(Model.Longitude ?? 106.660172);
 
             var map = L.map('map').setView([defaultLat, defaultLng], 13);
@@ -76,23 +94,92 @@
                 </text>
             }
 
-            // Fix blank map issue
-            setTimeout(function() {
-                map.invalidateSize();
-            }, 300);
+            setTimeout(function() { map.invalidateSize(); }, 300);
 
+            // ─── Helpers ──────────────────────────────────────────
+            function setMarker(lat, lng) {
+                document.getElementById('Lat').value = lat;
+                document.getElementById('Lng').value = lng;
+                var latlng = L.latLng(lat, lng);
+                if (marker) { marker.setLatLng(latlng); }
+                else { marker = L.marker(latlng).addTo(map); }
+                map.setView(latlng, 16);
+            }
+
+            function showStatus(msg, type) {
+                var el = document.getElementById('geocodeStatus');
+                el.textContent = msg;
+                el.className = 'geocode-status ' + type;
+            }
+
+            // ─── Geocode Address (Nominatim) ─────────────────────
+            function geocodeAddress() {
+                var address = document.getElementById('addressInput').value.trim();
+                if (!address) { showStatus('Vui lòng nhập địa chỉ.', 'error'); return; }
+
+                var btn = document.getElementById('btnGeocode');
+                btn.disabled = true;
+                showStatus('⏳ Đang tìm vị trí...', 'loading');
+
+                // Thêm ', Vietnam' nếu chưa có để tăng độ chính xác 
+                var query = address;
+                if (!query.toLowerCase().includes('vi\u1EC7t nam') && !query.toLowerCase().includes('vietnam')) {
+                    query += ', Việt Nam';
+                }
+
+                fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(query) + '&limit=1&countrycodes=vn', {
+                    headers: { 'Accept-Language': 'vi' }
+                })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    btn.disabled = false;
+                    if (data && data.length > 0) {
+                        var lat = parseFloat(data[0].lat);
+                        var lng = parseFloat(data[0].lon);
+                        setMarker(lat, lng);
+                        showStatus('✅ Đã xác định: ' + data[0].display_name.substring(0, 80) + '...', 'success');
+                    } else {
+                        showStatus('❌ Không tìm thấy vị trí. Hãy thử nhập chi tiết hơn hoặc click vào bản đồ.', 'error');
+                    }
+                })
+                .catch(function(err) {
+                    btn.disabled = false;
+                    showStatus('❌ Lỗi kết nối. Vui lòng thử lại.', 'error');
+                });
+            }
+
+            // ─── Reverse Geocode (update address from map click) ─
+            function reverseGeocode(lat, lng) {
+                fetch('https://nominatim.openstreetmap.org/reverse?format=json&lat=' + lat + '&lon=' + lng + '&zoom=18', {
+                    headers: { 'Accept-Language': 'vi' }
+                })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (data && data.display_name) {
+                        var addrInput = document.getElementById('addressInput');
+                        if (!addrInput.value.trim()) {
+                            addrInput.value = data.display_name;
+                        }
+                        showStatus('📍 Tọa độ: ' + lat.toFixed(6) + ', ' + lng.toFixed(6), 'success');
+                    }
+                })
+                .catch(function() {});
+            }
+
+            // ─── Event: Button click ─────────────────────────────
+            document.getElementById('btnGeocode').addEventListener('click', geocodeAddress);
+
+            // ─── Event: Enter key in address field ───────────────
+            document.getElementById('addressInput').addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') { e.preventDefault(); geocodeAddress(); }
+            });
+
+            // ─── Event: Map click (+ reverse geocode) ────────────
             map.on('click', function(e) {
                 var lat = e.latlng.lat;
                 var lng = e.latlng.lng;
-                
-                document.getElementById('Lat').value = lat;
-                document.getElementById('Lng').value = lng;
-
-                if (marker) {
-                    marker.setLatLng(e.latlng);
-                } else {
-                    marker = L.marker(e.latlng).addTo(map);
-                }
+                setMarker(lat, lng);
+                reverseGeocode(lat, lng);
             });
         });
     </script>

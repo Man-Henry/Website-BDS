@@ -9,7 +9,7 @@ using Website_QLPT.ViewModels;
 
 namespace Website_QLPT.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Landlord")]
     public class DashboardController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -8,7 +8,7 @@ namespace Website_QLPT.Controllers.Api
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/ocr")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Landlord")]
     public class OcrApiController : ControllerBase
     {
         private readonly IOcrService _ocrService;

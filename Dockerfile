@@ -1,18 +1,22 @@
-# Base image cho runtime
+# ═══════════════════════════════════════════════════════════════════════════════
+# Dockerfile — Website QLPT (Multi-stage production build)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─── Base image (runtime) ─────────────────────────────────────────────────────
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 
-# Chạy với non-root user để tăng bảo mật
+# Non-root user for security hardening
 RUN addgroup --system --gid 1001 appgroup && \
     adduser --system --uid 1001 --ingroup appgroup appuser
 
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 8080
 
-# Tạo thư mục logs với quyền của appuser
-RUN mkdir -p /app/logs && chown appuser:appgroup /app/logs
+# Create required directories with correct permissions
+RUN mkdir -p /app/logs /app/wwwroot/uploads/rooms && \
+    chown -R appuser:appgroup /app/logs /app/wwwroot/uploads
 
-# ─── Build stage ──────────────────────────────────────────────────────────
+# ─── Build stage ──────────────────────────────────────────────────────────────
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
@@ -23,7 +27,7 @@ RUN dotnet restore "Website_QLPT.csproj"
 COPY . .
 RUN dotnet build "Website_QLPT.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# ─── Publish stage ────────────────────────────────────────────────────────
+# ─── Publish stage ────────────────────────────────────────────────────────────
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "Website_QLPT.csproj" \
@@ -32,17 +36,17 @@ RUN dotnet publish "Website_QLPT.csproj" \
     /p:UseAppHost=false \
     /p:PublishSingleFile=false
 
-# ─── Final production image ───────────────────────────────────────────────
+# ─── Final production image ──────────────────────────────────────────────────
 FROM base AS final
 WORKDIR /app
 
 COPY --from=publish /app/publish .
 
-# Chuyển sang non-root user trước khi run
+# Switch to non-root user
 USER appuser
 
-# Health check tích hợp Docker
+# Health check — uses wget (available in base image, curl is NOT)
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-    CMD curl -f http://localhost:80/health/live || exit 1
+    CMD wget --no-verbose --tries=1 --spider http://localhost:8080/health/live || exit 1
 
 ENTRYPOINT ["dotnet", "Website_QLPT.dll"]

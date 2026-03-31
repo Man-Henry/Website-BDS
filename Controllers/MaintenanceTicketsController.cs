@@ -251,7 +251,7 @@ namespace Website_QLPT.Controllers
         }
 
         // GET: MaintenanceTickets/EditStatus/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Landlord")]
         public async Task<IActionResult> EditStatus(int? id)
         {
             if (id == null) return NotFound();
@@ -272,7 +272,7 @@ namespace Website_QLPT.Controllers
         // POST: MaintenanceTickets/EditStatus/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Landlord")]
         public async Task<IActionResult> EditStatus(int id, TicketStatus status)
         {
             var ticket = await _context.MaintenanceTickets

@@ -167,15 +167,27 @@ try
     // ─────────────────────────────────────────────────────────────────────────
     // ④ HEALTH CHECKS
     // ─────────────────────────────────────────────────────────────────────────
-    builder.Services.AddHealthChecks();
-    // Note: AddDbContextCheck requires Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore
-    // The basic health check tests the DB connection via the /health/ready endpoint
-    // using a custom check registered at startup time:
     builder.Services.AddHealthChecks()
         .AddCheck("database", () =>
         {
-            // Simple connectivity check - EF will throw on misconfigured connection string
-            return HealthCheckResult.Healthy("Database connection string configured.");
+            // Fix BUG-005: Actually test database connectivity
+            // Note: This uses the connection string to attempt a raw SQL connection
+            var connStr = builder.Configuration.GetConnectionString("DefaultConnection");
+            if (string.IsNullOrEmpty(connStr))
+                return HealthCheckResult.Unhealthy("No connection string configured.");
+            try
+            {
+                using var conn = new Microsoft.Data.SqlClient.SqlConnection(connStr);
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT 1";
+                cmd.ExecuteScalar();
+                return HealthCheckResult.Healthy("Database is reachable.");
+            }
+            catch (Exception ex)
+            {
+                return HealthCheckResult.Unhealthy("Database connection failed.", ex);
+            }
         }, tags: ["ready"]);
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -208,6 +220,35 @@ try
             Version = "v1",
             Description = "Public API endpoints cho hệ thống Quản Lý Phòng Trọ"
         });
+
+        // Fix BUG-001: Resolve conflicting controller names (MVC vs API)
+        c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+
+        // Chỉ hiển thị API controllers (có [ApiController] attribute)
+        c.DocInclusionPredicate((docName, apiDesc) =>
+        {
+            if (apiDesc.ActionDescriptor is Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor controllerDesc)
+            {
+                return controllerDesc.ControllerTypeInfo.GetCustomAttributes(typeof(Microsoft.AspNetCore.Mvc.ApiControllerAttribute), true).Any();
+            }
+            return false;
+        });
+    });
+
+    // ─── CORS POLICY (Fix BUG-004) ────────────────────────────────────────
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("ApiCorsPolicy", policy =>
+        {
+            policy.WithOrigins(
+                    "https://localhost:7182",
+                    "http://localhost:5113",
+                    "http://localhost:3000",  // React/Vue dev server
+                    "http://localhost:8080")  // Mobile dev
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials();
+        });
     });
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -230,6 +271,16 @@ try
             opt.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
             opt.QueueLimit = 2;
         });
+
+        // Fix BUG-004 enhancement: Rate limit auth endpoints
+        options.AddFixedWindowLimiter("AuthPolicy", opt =>
+        {
+            opt.PermitLimit = 10;
+            opt.Window = TimeSpan.FromMinutes(1);
+            opt.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+            opt.QueueLimit = 0;
+        });
+
         options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
     });
 
@@ -243,17 +294,36 @@ try
     // ─────────────────────────────────────────────────────────────────────────
     app.Use(async (ctx, next) =>
     {
+        // ─── Core Security Headers ───────────────────────────────────────────
         ctx.Response.Headers.Append("X-Content-Type-Options", "nosniff");
         ctx.Response.Headers.Append("X-Frame-Options", "DENY");
         ctx.Response.Headers.Append("Referrer-Policy", "strict-origin-when-cross-origin");
         ctx.Response.Headers.Append("X-Permitted-Cross-Domain-Policies", "none");
+
+        // Sprint 4: Disable legacy XSS filter (modern best practice — avoids false positives)
+        ctx.Response.Headers.Append("X-XSS-Protection", "0");
+
+        // Sprint 4: Restrict browser features (camera, microphone, geolocation, payment)
+        ctx.Response.Headers.Append("Permissions-Policy",
+            "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=()");
+
+        // Sprint 4: HSTS — force HTTPS for 1 year + subdomains (production only)
+        if (!ctx.RequestServices.GetRequiredService<IWebHostEnvironment>().IsDevelopment())
+        {
+            ctx.Response.Headers.Append("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
+        }
+
+        // ─── Content Security Policy ─────────────────────────────────────────
         ctx.Response.Headers.Append("Content-Security-Policy",
             "default-src 'self'; " +
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; " +
-            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; " +
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com; " +
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://unpkg.com; " +
             "font-src 'self' data: https://fonts.gstatic.com https://cdn.jsdelivr.net; " +
-            "img-src 'self' data: blob: https://images.unsplash.com https://*.unsplash.com; " +
-            "connect-src 'self' https://provinces.open-api.vn https://fonts.googleapis.com https://fonts.gstatic.com wss:;");
+            "img-src 'self' data: blob: https://images.unsplash.com https://*.unsplash.com https://*.tile.openstreetmap.org; " +
+            "connect-src 'self' https://provinces.open-api.vn https://fonts.googleapis.com https://fonts.gstatic.com https://nominatim.openstreetmap.org wss:; " +
+            "frame-ancestors 'none'; " +
+            "base-uri 'self'; " +
+            "form-action 'self';");
         await next();
     });
 
@@ -309,6 +379,9 @@ try
 
     app.UseStaticFiles();
     app.UseRouting();
+
+    // Fix BUG-004: Enable CORS for API endpoints
+    app.UseCors("ApiCorsPolicy");
 
     app.UseIdempotency();
     app.UseRateLimiter();

@@ -4,64 +4,96 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Cổng Khách Thuê</title>
-    <!-- Mượn tạm CSS của Admin -->
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 (local) -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!-- Bootstrap Icons (local) -->
+    <link rel="stylesheet" href="~/lib/bootstrap-icons/bootstrap-icons.min.css" />
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="~/manifest.json" />
     <meta name="theme-color" content="#0d6efd" />
+
+    @await RenderSectionAsync("Styles", required: false)
 </head>
 <body class="admin-body">
     <!-- Sidebar -->
-    <div class="admin-sidebar" id="sidebar">
+    <aside class="admin-sidebar" id="adminSidebar">
         <div class="sidebar-brand">
-            <i class="bi bi-person-badge text-primary"></i> <span style="color:#2d3748;">Khách Thuê</span>
-        </div>
-        
-        <div class="sidebar-user mb-4 pb-4 border-bottom px-3 text-center">
-            <div style="width: 48px; height: 48px; border-radius: 50%; background: #e2e8f0; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-                <i class="bi bi-person text-secondary fs-4"></i>
+            <a href="/" class="brand-icon" title="Về Trang Chủ" style="text-decoration:none;">
+                <i class="bi bi-buildings"></i>
+            </a>
+            <div class="brand-text">
+                <span class="brand-name">QLPT</span>
+                <span class="brand-sub">Cổng Khách Thuê</span>
             </div>
-            <div style="font-size: 14px; font-weight: 600; color: #4a5568;">@User.Identity?.Name</div>
-            <div style="font-size: 12px; color: #718096;">Khách thuê</div>
-            <form method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" class="mt-2 text-center">
-                <button type="submit" class="btn btn-sm btn-outline-danger" style="font-size: 0.75rem;"><i class="bi bi-box-arrow-right"></i> Đăng xuất</button>
-            </form>
         </div>
 
-        <nav class="sidebar-menu">
-            <a href="@Url.Action("Index", "TenantDashboard")"
-               class="menu-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "TenantDashboard" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
-                <i class="bi bi-speedometer2"></i> Tổng Quan
-            </a>
-            <a href="@Url.Action("Index", "MaintenanceTickets")"
-               class="menu-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "MaintenanceTickets" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
-                <i class="bi bi-clipboard2-check"></i> Phiếu Bảo Trì
-            </a>
-            <a href="@Url.Action("Create", "MaintenanceTickets")"
-               class="menu-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "MaintenanceTickets" && ViewContext.RouteData.Values["Action"]?.ToString() == "Create" ? "active" : "")">
-                <i class="bi bi-plus-square"></i> Gửi Phiếu Mới
-            </a>
-        </nav>
-        
-        <div class="mt-auto px-4 py-3 text-center">
-            <a href="/" class="btn btn-sm btn-outline-secondary w-100">
-                <i class="bi bi-house"></i> Về Trang Chủ
-            </a>
+        <!-- User Profile -->
+        <div class="sidebar-profile">
+            <div class="profile-avatar tenant">
+                <i class="bi bi-person-fill"></i>
+            </div>
+            <div class="profile-info">
+                <span class="profile-name">@User.Identity?.Name</span>
+                <span class="profile-role">
+                    <span class="badge-role tenant">Khách thuê</span>
+                </span>
+            </div>
         </div>
-    </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <span class="nav-section-label">TỔNG QUAN</span>
+                <a asp-controller="TenantDashboard" asp-action="Index" class="nav-item @(IsActive("TenantDashboard", "Index"))">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <span class="nav-section-label">BẢO TRÌ</span>
+                <a asp-controller="MaintenanceTickets" asp-action="Index" class="nav-item @(IsActive("MaintenanceTickets", "Index"))">
+                    <i class="bi bi-clipboard2-check"></i>
+                    <span>Phiếu Bảo Trì</span>
+                </a>
+                <a asp-controller="MaintenanceTickets" asp-action="Create" class="nav-item @(IsActive("MaintenanceTickets", "Create"))">
+                    <i class="bi bi-plus-square"></i>
+                    <span>Gửi Phiếu Mới</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <span class="nav-section-label">TRANG CHỦ</span>
+                <a href="/" class="nav-item">
+                    <i class="bi bi-globe"></i>
+                    <span>Về Trang Chủ</span>
+                </a>
+            </div>
+        </nav>
+    </aside>
 
     <!-- Main Content -->
-    <div class="admin-main" id="main-content">
-        <!-- Top Navbar -->
-        <nav class="admin-topbar">
-            <button class="btn btn-link text-dark" id="sidebar-toggle">
-                <i class="bi bi-list fs-4"></i>
+    <div class="admin-main" id="adminMain">
+        <!-- Top Header -->
+        <header class="admin-header">
+            <button class="header-toggle" id="sidebarToggle" title="Toggle Sidebar">
+                <i class="bi bi-list"></i>
             </button>
-            <div class="ms-auto pe-4 d-flex align-items-center">
+
+            <div class="header-breadcrumb">
+                <span class="breadcrumb-text">@(ViewData["Title"] ?? "Cổng Khách Thuê")</span>
+            </div>
+
+            <div class="header-actions d-flex align-items-center">
                 <div class="dropdown me-3">
                     <button class="btn btn-link text-dark position-relative p-0" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
                         <i class="bi bi-bell fs-5"></i>
@@ -80,30 +112,57 @@
                         </div>
                     </ul>
                 </div>
+                <partial name="_LoginPartial" />
             </div>
-        </nav>
+        </header>
 
-        <div class="admin-container">
-            <main role="main">
-                @RenderBody()
-            </main>
-        </div>
+        <!-- Page Content -->
+        <main class="admin-content">
+            @RenderBody()
+        </main>
     </div>
 
     <!-- Nhúng Floating Chat Widget -->
     <partial name="_TenantChatWidget" />
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- Global Toast Notifications -->
+    @if (TempData["Success"] != null)
+    {
+        <div class="toast-container-qlpt" id="globalToast">
+            <div class="toast-qlpt toast-success">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>@TempData["Success"]</span>
+            </div>
+        </div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="toast-container-qlpt" id="globalToast">
+            <div class="toast-qlpt toast-error">
+                <i class="bi bi-x-circle-fill text-danger"></i>
+                <span>@TempData["Error"]</span>
+            </div>
+        </div>
+    }
+
+    <!-- Scripts -->
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script>
+    <script src="~/js/admin.js" asp-append-version="true"></script>
     <script src="~/js/notification.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
     <script>
-        $(document).ready(function() {
-            $('#sidebar-toggle').click(function() {
-                $('#sidebar').toggleClass('collapsed');
-                $('#main-content').toggleClass('expanded');
-            });
-        });
+        // Auto-dismiss global toast
+        (function() {
+            const toast = document.getElementById('globalToast');
+            if (toast) {
+                setTimeout(() => {
+                    toast.style.transition = 'opacity 0.4s';
+                    toast.style.opacity = '0';
+                    setTimeout(() => toast.remove(), 400);
+                }, 3500);
+            }
+        })();
 
         // Register PWA Service Worker
         if ('serviceWorker' in navigator) {
@@ -112,6 +171,17 @@
             });
         }
     </script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+@functions {
+    string IsActive(string controller, string? action = null)
+    {
+        var currentController = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+        var currentAction = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+        if (action == null)
+            return currentController.Equals(controller, StringComparison.OrdinalIgnoreCase) ? "active" : "";
+        return (currentController.Equals(controller, StringComparison.OrdinalIgnoreCase) &&
+                currentAction.Equals(action, StringComparison.OrdinalIgnoreCase)) ? "active" : "";
+    }
+}

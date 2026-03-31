@@ -11,7 +11,7 @@ using X.PagedList.Extensions;
 
 namespace Website_QLPT.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Landlord")]
     public class RoomsController : Controller
     {
         private readonly ApplicationDbContext _context;
